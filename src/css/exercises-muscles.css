@@ -1,5 +1,8 @@
 .container {
     padding: 40px 20px;
+    border-radius: 30px;
+    background-color: rgba(232, 232, 232, 1);
+    width: 375px;
 }
 
 .exercises {
@@ -9,6 +12,34 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1;
-    /* 100% */
     letter-spacing: -0.02;
+    margin-bottom: 20px;
+}
+
+.exercises-nav-list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.exercises-nav-item:not(:last-child) {
+    margin-right: 6px;
+}
+
+.exercises-button {
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: var(--white-dirty);
+
+    font-size: 14px;
+
+    font-weight: 400;
+    line-height: 1.28;
+}
+
+.exercises-button:hover,
+.exercises-button:focus {
+    background-color: var(--grey);
+    color: var(--white-dirty);
 }
