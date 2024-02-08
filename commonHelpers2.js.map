@@ -1,1 +1,1 @@
-{"version":3,"file":"commonHelpers2.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"commonHelpers2.js","sources":["../src/main.js"],"sourcesContent":["import axios from 'axios';\n\naxios.defaults.baseURL = 'https://energyflow.b.goit.study/api';\n"],"names":["axios"],"mappings":"svBAEAA,EAAM,SAAS,QAAU"}
