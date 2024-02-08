@@ -13,7 +13,7 @@ let query = '';
 let page = 1;
 let maxPage = 0;
 async function getGallery(data, page = 1) {
-  const BASE_URL = 'https://energyflow.b.goit.study/api/filters';
+  const BASE_URL = 'https://energyflow.b.goit.study/api';
 
   try {
     const response = await axios.get(`${BASE_URL}`, {
@@ -28,7 +28,7 @@ async function getGallery(data, page = 1) {
       },
     });
     console.log(data);
-    return response.data;
+    return response;
   } catch (error) {
     iziToast.error({
       title: 'Error',
@@ -48,9 +48,9 @@ async function handleSearch(event) {
   //   refs.loaderGallery.classList.remove(hiddenClass);
 
   page = 1;
-  console.log(event.currentTarget);
+  console.log(event);
   const form = event.currentTarget;
-  query = form.elements.query.value.trim();
+  query = form.elements.query.value;
 
   if (!query) {
     refs.loaderGallery.classList.add(hiddenClass);
@@ -65,32 +65,27 @@ async function handleSearch(event) {
   }
 
   try {
-    const { totalPages, results } = await getGallery(query);
+    const {
+      totalPages,
+      data: { results },
+    } = await getGallery(query);
     if (totalPages === 0) {
       return;
     }
 
     maxPage = Math.ceil(totalPages / 10);
-    createGallery(...results);
+    createGallery(results);
   } catch (error) {
     console.log(console.error);
   } finally {
     form.reset();
+    alert(`wrong`);
   }
 }
 
-function createGallery(arr) {
-  const markup = arr
-    .map(
-      ({
-        bodyPart,
-        target,
-        name,
-        burnedCalories,
-        rating,
-        burnedCalories,
-        time,
-      }) => `<li class = "list-exercises"><div class="options">
+function createGallery(filters = {}) {
+  const { bodyPart, target, name, burnedCalories, rating, time } = filters;
+  const markup = `<li class = "list-exercises"><div class="options">
         <p class="options-item"> WORKOUT</p>
         <span class="options-item-span">${rating}</span>
         <button type = "button" >START</button>
@@ -98,8 +93,8 @@ function createGallery(arr) {
         <p class="options-item"> Burned calories:${burnedCalories}/${time}</p>
         <p class="options-item">Body part:${bodyPart}</p>
         <p>Target:${target}</p></div>
-        </li>`
-    )
-    .join('');
-  exercisesEl.insertAdjacentHTML('beforeend', markup);
+        </li>`;
+
+  markup.join('');
+  refs.exercisesEl.insertAdjacentHTML('beforeend', markup);
 }
