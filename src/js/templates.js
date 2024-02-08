@@ -1,19 +1,13 @@
 import axios from 'axios';
 
-const fetchData = async (pathToResource, params) => {
-  const res = await axios.get(`/${pathToResource}`, { params: { params } });
-  return res.data;
+const fetchData = async (pathToResource, paramsObj) => {
+  const res = await axios.get(`/${pathToResource}`, { params: paramsObj });
+  return res.data.results;
 };
 
-async function getRes() {
-  try {
-    const res = await fetchData('filters');
-    console.log(res.results.filter(el => el.name === 'waist'));
-  } catch {
-    err => console.log(err);
-  }
-}
-
-getRes();
-
 export { fetchData };
+
+// *** ============== example ============== ***
+
+// const example = await fetchData('filters', { filter: 'Muscles', page: 2 });
+// example.map(el => console.log(el));
