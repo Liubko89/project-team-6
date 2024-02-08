@@ -1,5 +1,21 @@
 import axios from 'axios';
 
-axios
-  .get('/filters?filter=Equipment')
-  .then(({ data: { results } }) => console.log(results));
+const fetchData = async (pathToResource, params) => {
+  const res = await axios.get(`/${pathToResource}`, { params: { params } });
+  return res.data;
+};
+
+async function getRes() {
+  try {
+    const res = await fetchData('filters');
+    console.log(res.results.filter(el => el.name === 'waist'));
+  } catch {
+    err => console.log(err);
+  }
+}
+
+getRes();
+
+axios.get('/exercises').then(res => console.log(res));
+
+export { fetchData };
