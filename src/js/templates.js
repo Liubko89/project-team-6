@@ -8,14 +8,10 @@ const fetchData = async (pathToResource, params) => {
 async function getRes() {
   try {
     const res = await fetchData('filters');
-    console.log(res.results.filter(el => el.name === 'waist'));
+    return res.results.filter(el => el.name === 'waist');
   } catch {
     err => console.log(err);
   }
 }
-
-getRes();
-
-axios.get('/exercises').then(res => console.log(res));
 
 export { fetchData };
