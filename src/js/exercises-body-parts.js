@@ -13,15 +13,15 @@ let query = '';
 let page = 1;
 let maxPage = 0;
 async function getGallery(data, page = 1) {
-  const BASE_URL = 'https://energyflow.b.goit.study/api';
+  const BASE_URL = 'https://energyflow.b.goit.study/api/filters';
 
   try {
     const response = await axios.get(`${BASE_URL}`, {
       params: {
         filter: Muscles,
-        // { bodypart: cardio,
-        //     muscles: abs,
-        //     equipment: cable,},
+        bodypart: cardio,
+        muscles: abs,
+        equipment: cable,
 
         page,
         limit: 10,
