@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import axios from './templates.js';
 import iziToast from 'izitoast';
 
 const refs = {
@@ -12,17 +13,34 @@ const hiddenClass = 'is-hidden';
 let query = '';
 let page = 1;
 let maxPage = 0;
-async function getGallery(data, page = 1) {
-  const BASE_URL = 'https://energyflow.b.goit.study/api';
 
+// async function getRequest(endPoint, attr = {}) {
+//   try {
+//     const response = await fetch(this.#baseURL + endPoint, attr);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error, status: ${response.status}`);
+//     }
+//     return response.json();
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
+// async objectGetRequest(endPoint) {
+//   return this.#dbRequest(endPoint);
+// }
+
+const BASE_URL = `https://energyflow.b.goit.study/api/`;
+const endPoint = `filters`;
+
+async function getGallery(endPoint, resp = {}) {
   try {
-    const response = await axios.get(`${BASE_URL}`, {
+    const response = await axios.get(BASE_URL + endPoint, {
       params: {
         filter: Muscles,
         bodypart: cardio,
         muscles: abs,
         equipment: cable,
-
         page,
         limit: 10,
       },
