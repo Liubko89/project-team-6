@@ -1,108 +1,143 @@
 .container-muscles {
-  padding: 40px 20px;
-  border-radius: 30px;
-  background-color: rgba(232, 232, 232, 1);
+    padding: 40px 20px;
+    border-radius: 30px;
+    background-color: rgba(232, 232, 232, 1);
+    width: 736px;
+    padding: 48px;
 }
 
 .exercises {
-  color: #1b1b1b;
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
+    color: #1b1b1b;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
 }
 
 .exercises-nav-list {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
 }
 
 .exercises-nav-item:not(:last-child) {
-  margin-right: 6px;
+    margin-right: 6px;
 }
 
 .exercises-button {
-  padding: 6px 14px;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-  background-color: var(--white-dirty);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.28;
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: var(--white-dirty);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
 }
 
 .exercises-button:hover,
 .exercises-button:focus,
 .exercises-button:disabled {
-  background-color: var(--grey);
-  color: var(--white-dirty);
+    background-color: var(--grey);
+    color: var(--white-dirty);
 }
 
 .exercise-card {
-  width: 295px;
-  list-style-type: none;
-  position: relative;
+    width: 295px;
+    list-style-type: none;
+    position: relative;
 }
 
 .exercise-card-img {
-  border-radius: 30px;
+    border-radius: 12px;
 }
 
 .container-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .description-category {
-  color: rgba(246, 246, 246, 1);
-  text-transform: capitalize;
-  font-size: 20px;
-  line-height: 1;
+    color: rgba(246, 246, 246, 1);
+    text-transform: capitalize;
+    font-size: 20px;
+    line-height: 1;
 }
 
 .description-category-par {
-  color: rgba(246, 246, 246, 0.4);
-  font-size: 12px;
-  line-height: 1.5;
+    color: rgba(246, 246, 246, 0.4);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 /* TABLET SCREEN MUSCLES*/
 
 @media screen and (min-width: 768px) and (max-width: 1438px) {
-  .container-muscles {
-    padding: 64px 48px;
-  }
+    .container-muscles {
+        padding: 64px 48px;
+    }
 
-  .exercises {
-    font-size: 44px;
-    line-height: 1.09;
-    letter-spacing: -2%;
-    margin-bottom: 32px;
-  }
+    .exercises {
+        font-size: 44px;
+        line-height: 1.09;
+        letter-spacing: -2%;
+        margin-bottom: 32px;
+    }
 
-  .exercises-nav-item:not(:last-child) {
-    margin-right: 8px;
-  }
+    .exercises-button {
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-  .exercises-nav-list {
-    margin-bottom: 32px;
-  }
+    .exercises-nav-item:not(:last-child) {
+        margin-right: 8px;
+    }
 
-  .exercises-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    flex-basis: ((100% - 14) /2);
-  }
+    .exercises-nav-list {
+        margin-bottom: 32px;
+    }
+
+    .exercises-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .exercise-card {
+        width: 313px;
+    }
+}
+
+/* MEDIA FOR DESKTOP */
+
+@media screen and (min-width: 1440px) {
+    .container-muscles {
+        width: 1408px;
+        padding: 64px 48px;
+    }
+
+    .exercises-button {
+        padding: 10px 20px;
+    }
+
+    .exercises-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .exercise-card {
+        width: 313px;
+    }
 }

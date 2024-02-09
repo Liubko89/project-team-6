@@ -28,7 +28,7 @@ async function getExercises(filter) {
 }
 
 function renderExerciseCards(exercises) {
-  exercisesContainer.innerHTML = exercises.map(buildExerciseCard);
+  exercisesContainer.innerHTML = exercises.map(buildExerciseCard).join('');
 }
 
 function buildExerciseCard({ name, filter, imgUrl }) {
