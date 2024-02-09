@@ -2,8 +2,7 @@
     padding: 40px 20px;
     border-radius: 30px;
     background-color: rgba(232, 232, 232, 1);
-    width: 736px;
-    padding: 48px;
+    width: 335px;
 }
 
 .exercises {
@@ -17,7 +16,7 @@
 .exercises-nav-list {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .exercises-nav-item:not(:last-child) {
@@ -46,6 +45,21 @@
     width: 295px;
     list-style-type: none;
     position: relative;
+}
+
+.exercise-card:not(:last-child) {
+    padding-bottom: 20px;
+}
+
+.input-search-container {
+    /* margin-bottom: 40px; */
+}
+
+.input-search-exercises {
+    width: 100%;
+    border-radius: 30px;
+    height: 42px;
+    padding-left: 10px;
 }
 
 .exercise-card-img {
@@ -82,6 +96,7 @@
 @media screen and (min-width: 768px) and (max-width: 1438px) {
     .container-muscles {
         padding: 64px 48px;
+        width: 736px;
     }
 
     .exercises {
@@ -115,6 +130,10 @@
     .exercise-card {
         width: 313px;
     }
+
+    .exercise-card:not(:last-child) {
+        padding-bottom: 0;
+    }
 }
 
 /* MEDIA FOR DESKTOP */
@@ -140,5 +159,8 @@
     .exercise-card {
         width: 313px;
     }
-}
 
+    .exercise-card:not(:last-child) {
+        padding-bottom: 0;
+    }
+}
