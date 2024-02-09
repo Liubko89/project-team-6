@@ -1,16 +1,13 @@
-.container {
+.container-muscles {
     padding: 40px 20px;
     border-radius: 30px;
     background-color: rgba(232, 232, 232, 1);
-    width: 375px;
+    
 }
 
 .exercises {
     color: #1b1b1b;
-    font-family: "DM Sans";
     font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 1;
     letter-spacing: -0.02;
     margin-bottom: 20px;
@@ -31,9 +28,7 @@
     border: none;
     outline: none;
     background-color: var(--white-dirty);
-
     font-size: 14px;
-
     font-weight: 400;
     line-height: 1.28;
 }
@@ -42,4 +37,27 @@
 .exercises-button:focus {
     background-color: var(--grey);
     color: var(--white-dirty);
+}
+
+.exercise-card{
+    width: 295px;    
+    list-style-type: none;  
+    
+}
+
+.exercise-card-img{
+    border-radius: 30px;    
+}
+
+
+
+
+
+/* TABLET SCREEN MUSCLES*/
+
+@media screen and (min-width: 768px) and (max-width: 1438px) { 
+    .container-muscles{
+        
+        
+    }
 }
