@@ -1,6 +1,6 @@
-.is-hidden {
+/* .is-hidden {
   display: none;
-}
+} */
 .list-exercises {
   padding-bottom: 20px;
   width: 295px;
@@ -32,8 +32,8 @@ div.work-div {
   background-color: rgba(126, 132, 127, 1);
   color: #fff;
 }
-.rating-par {
-}
+/* .rating-par {
+} */
 .rating-stars {
   padding-left: 16px;
   display: flex;
