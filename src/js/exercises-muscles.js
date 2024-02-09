@@ -35,10 +35,12 @@ function buildExerciseCard({ name, filter, imgUrl }) {
   return `
     <li class="exercise-card">
     <div class="exercise-card-img">
-      <img class="exercise-card-img" src="${imgUrl}" alt="${name}">      
+      <img class="exercise-card-img" src="${imgUrl}" alt="${name}">
+      <div class="container-text">
       <h3 class="description-category">${name}</h3>
-      <p class="description-category">${filter}</p>
-          </div>
+      <p class="description-category-par">${filter}</p>
+      </div>      
+      </div>
     </li>
   `;
 }
