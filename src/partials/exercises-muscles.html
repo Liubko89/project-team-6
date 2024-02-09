@@ -1,17 +1,34 @@
-<div class="container ">
+<div class="container">
   <div class="container-muscles">
     <h2 class="exercises">Exercises</h2>
     <ul class="exercises-nav-list">
       <li class="exercises-nav-item">
-        <button class="exercises-button" id="muscles-button">Muscles</button>
+        <button
+          class="exercises-button active"
+          id="muscles-button"
+          data-filter="Muscles"
+          disabled
+        >
+          Muscles
+        </button>
       </li>
       <li class="exercises-nav-item">
-        <button class="exercises-button" id="body-parts-button">
+        <button
+          class="exercises-button"
+          id="body-parts-button"
+          data-filter="Body parts"
+        >
           Body parts
         </button>
       </li>
       <li class="exercises-nav-item">
-        <button class="exercises-button" id="equipment-button">Equipment</button>
+        <button
+          class="exercises-button"
+          id="equipment-button"
+          data-filter="Equipment"
+        >
+          Equipment
+        </button>
       </li>
     </ul>
     <!-- <div class="search-exercises is-hidden">
@@ -20,10 +37,7 @@
         </svg>
       </a>
     </div> -->
-    
-    <div class="exercises-container"></div>
-    </div>
 
-
+    <ul class="exercises-container"></ul>
   </div>
-  
+</div>

@@ -1,4 +1,4 @@
-const containerMuscles = document.querySelector('.container-muscles');
+const containerMuscles = document.querySelector('.exercises-nav-list');
 const exercisesContainer = document.querySelector('.exercises-container');
 const BASE_URL = 'https://energyflow.b.goit.study/api';
 
@@ -33,13 +33,13 @@ function renderExerciseCards(exercises) {
 
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
-    <li class="exercise-card">
-    <div class="exercise-card-img">
-      <img class="exercise-card-img" src="${imgUrl}" alt="${name}">
-      <div class="container-text">
-      <h3 class="description-category">${name}</h3>
-      <p class="description-category-par">${filter}</p>
-      </div>      
+    <li class="exercise-card" data-filter="${name}">
+      <div class="exercise-card-img">
+        <img class="exercise-card-img" src="${imgUrl}" alt="${name}">
+        <div class="container-text">
+          <h3 class="description-category">${name}</h3>
+          <p class="description-category-par">${filter}</p>
+        </div>      
       </div>
     </li>
   `;
