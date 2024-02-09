@@ -34,13 +34,13 @@ function modalWindowMarkup(filters = {}) {
     description,
   } = filters;
 
-  const markup = `<div class="exercise-window">
+  const markup = `<div class="exercises-modal-window">
           <div class="exercise-container">
             <button class="exercise-close-btn" type="button">
               <svg
                 class="exercise-close-icon"
-                width="28"
-                height="28"
+                width="10"
+                height="10"
                 aria-label="Close icon"
               >
                 <use href="../svg/icons.svg#icon-close-btn"></use>
@@ -54,12 +54,12 @@ function modalWindowMarkup(filters = {}) {
               />
             </div>
             <div class="exercise-info-wrapper">
-              <div class="exercise-name-and-rating-container">
+              <div class="exercise-name-container">
                 <p class="exercise-name">${name}</p>
-                <p class="modal-rating">${rating}</p>
+                <p class="exercise-rating">${rating}</p>
               </div>
               <div class="exercise-params-container">
-                <ul class="exercise-params">
+                <ul class="exercise-params-list">
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Target</p>
                     <p class="exercise-param-value exercise-param-target">${target}</p>
@@ -76,11 +76,13 @@ function modalWindowMarkup(filters = {}) {
                     <p class="exercise-param-name">Popular</p>
                     <p class="exercise-param-value exercise-param-popularuty">${popularity}</p>
                   </li>
+                  <li class="exercise-params-card">
+                  <p class="exercise-param-name">Burned calories</p>
+                  <p class="exercise-param-value exercise-param-popularuty">${burnedCalories}/${time} m</p></li>
                 </ul>
-                <p class="exercise-calories">Burned calories</p>
-                <p class="exercise-calories-value">${burnedCalories}/${time} m</p>
+                
               </div>
-              <p class="exercise-description">${description}</p>
+              <p class="exercise-descr">${description}</p>
               <div class="exercise-buttons">
                 <button
                   class="exercise-favorite-btn"
@@ -102,4 +104,6 @@ function modalWindowMarkup(filters = {}) {
             </div>
           </div>
         </div>`;
+
+  modalEl.innerHTML = markup;
 }
