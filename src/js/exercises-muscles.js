@@ -44,7 +44,7 @@ function renderExerciseCards(exercises) {
 
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
-    <li class="exercise-card" data-filter="${name}">
+    <li class="exercise-card" data-filter="${filter}" data-group="${name}">
       <div class="exercise-card-img">
         <img class="exercise-card-img" src="${imgUrl}" alt="${name}">
         <div class="container-text">
@@ -57,6 +57,11 @@ function buildExerciseCard({ name, filter, imgUrl }) {
 }
 
 function renderPagination(pageCount, currentPage) {
+  if (pageCount <= 1) {
+    pagination.innerHTML = '';
+    return;
+  }
+
   pagination.innerHTML = Array(pageCount)
     .fill(1)
     .map((n, i) => n + i)
