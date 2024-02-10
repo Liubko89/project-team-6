@@ -44,7 +44,7 @@ function renderExerciseCards(exercises) {
 
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
-    <li class="exercise-card" data-filter="${name}">
+    <li class="exercise-card" data-filter="${filter}" data-group="${name}">
       <div class="exercise-card-img">
         <img class="exercise-card-img" src="${imgUrl}" alt="${name}">
         <div class="container-text">

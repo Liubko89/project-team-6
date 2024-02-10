@@ -1,15 +1,62 @@
 <section class="exercise-filters-section">
   <div class="container container-exercises-home">
-    <!-- <form class="form-search visually-hidden">
-      <input
-        class="searching-input"
-        type="text"
-        name="searching-input"
-        placeholder="Search"
-      />
-      <button class="searching-btn" type="submit">search</button>
-    </form> -->
+    <header class="header-box">
+      <h2 class="exercise-header">Exercises</h2>
+      <span class="span-exercises"> / </span>
+      <h3 class="exercise-group">Waist</h3>
+    </header>
+
+    <div class="exercises-toolbar">
+      <div class="exercises-search">
+        <ul class="exercises-nav-list">
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button active"
+              id="muscles-button"
+              data-filter="Muscles"
+              disabled
+            >
+              Muscles
+            </button>
+          </li>
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button"
+              id="body-parts-button"
+              data-filter="Body parts"
+            >
+              Body parts
+            </button>
+          </li>
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button"
+              id="equipment-button"
+              data-filter="Equipment"
+            >
+              Equipment
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <form class="form-search visually-hidden">
+        <input
+          class="searching-input"
+          type="text"
+          name="searching-input"
+          placeholder="Search"
+        />
+        <button class="searching-btn" type="submit">
+          <svg class="icon-search" width="14" height="14">
+            <use href="../svg/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+
     <ul class="exercises-gallery"></ul>
+
     <span class="loader-gallery is-hidden"></span>
   </div>
 </section>
