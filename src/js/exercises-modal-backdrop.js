@@ -1,23 +1,40 @@
-const startBtn = document.querySelector('.start-btn');
+import axios from 'axios';
+
 const modalEl = document.querySelector('.modal-backdrop');
+const startBtn = document.querySelector('.exercises-gallery');
+const closebtn = document.querySelector('.exercise-close-btn');
 
-startBtn.addEventListener('click', handleSearch);
+const hiddenClass = 'is-hidden';
 
-function handleSearch(event) {
-  event.preventDefault();
-  fetchExercises().then(modalWindowMarkup).catch();
-}
+startBtn.addEventListener('click', handleClick);
 
-function fetchExercises() {
-  return fetch(
-    'https://energyflow.b.goit.study/api/exercises/64f389465ae26083f39b17a2'
-  ).then(resp => {
-    if (!resp.ok) {
-      throw new Error(resp.statusText);
+async function handleClick(event) {
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  const res = event.target.closest('[data-filter]').dataset.filter;
+  const arr = await axios
+    .get('https://energyflow.b.goit.study/api/exercises')
+    .then(data => data.data.results)
+    .catch(err => console.log(err));
+  arr.map(el => {
+    if (el.name === res) {
+      modalEl.classList.remove(hiddenClass);
+      modalWindowMarkup(el);
     }
-    return resp.json();
+    // onEscapeClick();
   });
 }
+
+// modalEl.addEventListener('keydown', onEscapeClick);
+
+// function onEscapeClick(event) {
+//   if (event.code !== 'Escape') {
+//     return;
+//   }
+//   modalEl.classList.add(hiddenClass);
+//   modalEl.removeEventListener('keydown', onEscapeClick);
+// }
 
 function modalWindowMarkup(filters = {}) {
   const {
@@ -33,7 +50,6 @@ function modalWindowMarkup(filters = {}) {
     rating,
     description,
   } = filters;
-
   const markup = `<div class="exercises-modal-window">
           <div class="exercise-container">
             <button class="exercise-close-btn" type="button">
@@ -43,7 +59,7 @@ function modalWindowMarkup(filters = {}) {
                 height="10"
                 aria-label="Close icon"
               >
-                <use href="../svg/icons.svg#icon-close-btn"></use>
+                <use href="./svg/icons.svg#icon-close-btn"></use>
               </svg>
             </button>
             <div class="exercise-image-wrapper">
@@ -54,11 +70,11 @@ function modalWindowMarkup(filters = {}) {
               />
             </div>
             <div class="exercise-info-wrapper">
-              <div class="exercise-name-container">
+              <div class="exercise-name-container decorate-line">
                 <p class="exercise-name">${name}</p>
                 <p class="exercise-rating">${rating}</p>
               </div>
-              <div class="exercise-params-container">
+              <div class="exercise-params-container decorate-line">
                 <ul class="exercise-params-list">
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Target</p>
@@ -80,7 +96,6 @@ function modalWindowMarkup(filters = {}) {
                   <p class="exercise-param-name">Burned calories</p>
                   <p class="exercise-param-value exercise-param-popularuty">${burnedCalories}/${time} m</p></li>
                 </ul>
-                
               </div>
               <p class="exercise-descr">${description}</p>
               <div class="exercise-buttons">
@@ -94,7 +109,7 @@ function modalWindowMarkup(filters = {}) {
                   class="exercise-fav-icon"
                   aria-label="Heart icon"
                   >
-                  <use href="../svg/icons.svg#icon-heart"></use>
+                  <use href="./svg/icons.svg#icon-heart"></use>
                   </svg>
                 </button>
                 <button class="exercise-raiting-btn" type="submit" data="${_id}">
@@ -104,6 +119,7 @@ function modalWindowMarkup(filters = {}) {
             </div>
           </div>
         </div>`;
-
   modalEl.innerHTML = markup;
 }
+
+// closebtn.addEventListener('click', )
