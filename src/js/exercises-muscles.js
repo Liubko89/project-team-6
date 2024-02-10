@@ -2,11 +2,11 @@ const containerMuscles = document.querySelector('.exercises-nav-list');
 const exercisesContainer = document.querySelector('.exercises-container');
 const BASE_URL = 'https://energyflow.b.goit.study/api';
 
-containerMuscles.addEventListener('click', handleContainerMuscles);
+containerMuscles.addEventListener('click', handleGroupSelection);
 
 getExercises('Muscles').then(renderExerciseCards);
 
-async function handleContainerMuscles(evt) {
+async function handleGroupSelection(evt) {
   const { filter } = evt.target.dataset;
   if (!filter) return;
   await getExercises(filter).then(renderExerciseCards);

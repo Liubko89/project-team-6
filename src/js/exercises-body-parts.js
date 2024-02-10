@@ -1,23 +1,24 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
-const listImagesEl = document.querySelector('.exercises-container');
+const exGroupCardList = document.querySelector('.exercises-container');
 const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
+const breadcrumb = document.querySelector('.exercise-group');
 
 const BASE_URL = `https://energyflow.b.goit.study/api/`;
 const hiddenClass = 'is-hidden';
 
-listImagesEl.addEventListener('click', handleContainerMuscles);
-listImagesEl.classList.remove(hiddenClass);
+exGroupCardList.addEventListener('click', handleGroupSelection);
+exGroupCardList.classList.remove(hiddenClass);
 getExercises('Muscles').then(renderExerciseCards);
 
-async function handleContainerMuscles(evt) {
+async function handleGroupSelection(evt) {
   console.log(evt.target);
-  const { filter } = evt.target.dataset;
+  const filter = evt.target.closest('.exercise-card')?.dataset.filter;
 
   if (!filter) return;
 
   await getExercises(filter).then(renderExerciseCards);
-  listImagesEl.classList.add(hiddenClass);
+  exGroupCardList.classList.add(hiddenClass);
 }
 
 async function getExercises(filter) {
