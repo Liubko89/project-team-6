@@ -5,24 +5,30 @@ const listExercisesEl = document.querySelector('.exercises-gallery');
 const breadcrumb = document.querySelector('.exercise-group');
 
 const BASE_URL = `https://energyflow.b.goit.study/api/`;
+const filterDict = {
+  Muscles: 'muscles',
+  'Body parts': 'bodypart',
+  Equipment: 'equipment',
+};
 const hiddenClass = 'is-hidden';
 
 exGroupCardList.addEventListener('click', handleGroupSelection);
 exGroupCardList.classList.remove(hiddenClass);
-getExercises('Muscles').then(renderExerciseCards);
+// getExercises('Muscles').then(renderExerciseCards);
 
 async function handleGroupSelection(evt) {
-  console.log(evt.target);
-  const filter = evt.target.closest('.exercise-card')?.dataset.filter;
+  const card = evt.target.closest('.exercise-card');
 
-  if (!filter) return;
+  if (!card) return;
 
-  await getExercises(filter).then(renderExerciseCards);
+  const { filter, group } = card.dataset;
+
+  await getExercises(filterDict[filter], group).then(renderExerciseCards);
   exGroupCardList.classList.add(hiddenClass);
 }
 
-async function getExercises(filter) {
-  return fetch(`${BASE_URL}exercises?filter=${filter}&page=1&limit=12`)
+async function getExercises(filter, group) {
+  return fetch(`${BASE_URL}exercises?${filter}=${group}&page=1&limit=12`)
     .then(resp => resp.json())
     .then(data => data.results);
 }
@@ -47,7 +53,7 @@ function createExerciseCard({
            
             <div class="exercises-par"> 
             <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="../svg/icons.svg#icon-running-man"></use></svg></div>
-            <p class="ex-name">${name}</p>
+            <h4 class="ex-name">${name}</h4>
             </div>
            
             <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
