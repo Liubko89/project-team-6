@@ -1,5 +1,5 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
-const hiddenContainer = document.querySelector('.container-muscles');
+const hiddenContainer = document.querySelector('.exercises');
 const exGroupCardList = document.querySelector('.exercises-container');
 const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
