@@ -1,22 +1,23 @@
-import"./assets/modulepreload-polyfill-3cfb730f.js";import{a as o,i as c}from"./assets/vendor-8cce9181.js";o.defaults.baseURL="https://energyflow.b.goit.study/api";const q=document.querySelector(".js-close-menu"),B=document.querySelector(".js-open-menu"),m=document.querySelector(".js-menu-container");q.addEventListener("click",M);B.addEventListener("click",C);function M(){m.classList.add("is-hidden")}function C(){m.classList.remove("is-hidden")}const g=document.querySelector(".exercises-nav-list"),T=document.querySelector(".exercises-container"),n=document.querySelector(".pagination"),k="https://energyflow.b.goit.study/api";let l="Muscles";g.addEventListener("click",R);n.addEventListener("click",U);d(l).then(p);async function R(e){const{filter:s}=e.target.dataset;if(!s)return;l=s,await d(s).then(p);const t=g.querySelector(".active"),i=e.target;t.disabled=!1,i.disabled=!0,t.classList.remove("active"),i.classList.add("active")}async function d(e,s=1){return fetch(`${k}/filters?filter=${e}&page=${s}&limit=12`).then(t=>t.json())}function p({results:e,page:s,totalPages:t}){j(e),I(t,s)}function j(e){T.innerHTML=e.map(H).join("")}function H({name:e,filter:s,imgUrl:t}){return`
+import"./assets/modulepreload-polyfill-3cfb730f.js";import{a as n,i as r}from"./assets/vendor-8cce9181.js";n.defaults.baseURL="https://energyflow.b.goit.study/api";const T=document.querySelector(".js-close-menu"),C=document.querySelector(".js-open-menu"),g=document.querySelector(".js-menu-container");T.addEventListener("click",D);C.addEventListener("click",R);function D(){g.classList.add("is-hidden")}function R(){g.classList.remove("is-hidden")}const I="https://energyflow.b.goit.study/api",m=document.querySelector(".quote__backend");async function _(){m.innerHTML='<span class="loader"></span>';try{return(await n.get(`${I}/quote`)).data}catch(e){throw r.error({title:"Wrong",message:"Try again",position:"topRight"}),e}}function j(e,t){return`<p class="quote__backend-text">${t}</p>
+    <p class="quote__backend-author">${e}</p>`}async function H(){try{const{author:e,quote:t}=await _(),s={author:e,quote:t,savedDate:new Date().toLocaleDateString()};localStorage.setItem("quote",JSON.stringify(s)),localStorage.setItem("savedDate",s.savedDate),v(e,t)}catch(e){console.error(e)}}function v(e,t){m.innerHTML=j(e,t)}async function f(){const e=JSON.parse(localStorage.getItem("quote")),t=localStorage.getItem("savedDate"),s=new Date().toLocaleDateString();e&&t===s?v(e.author,e.quote):await H()}f();function x(){const e=new Date,t=new Date(e.getFullYear(),e.getMonth(),e.getDate()+1,0,0,0,0)-e;setTimeout(function(){f(),x()},t)}x();const h=document.querySelector(".exercises-nav-list"),U=document.querySelector(".exercises-container"),o=document.querySelector(".pagination"),A="https://energyflow.b.goit.study/api";let l="Muscles";h.addEventListener("click",Q);o.addEventListener("click",W);d(l).then(u);async function Q(e){const{filter:t}=e.target.dataset;if(!t)return;l=t,await d(t).then(u);const s=h.querySelector(".active"),a=e.target;s.disabled=!1,a.disabled=!0,s.classList.remove("active"),a.classList.add("active")}async function d(e,t=1){return fetch(`${A}/filters?filter=${e}&page=${t}&limit=12`).then(s=>s.json())}function u({results:e,page:t,totalPages:s}){P(e),F(s,t)}function P(e){U.innerHTML=e.map(O).join("")}function O({name:e,filter:t,imgUrl:s}){return`
     <li class="exercise-card" data-filter="${e}">
       <div class="exercise-card-img">
-        <img class="exercise-card-img" src="${t}" alt="${e}">
+        <img class="exercise-card-img" src="${s}" alt="${e}">
         <div class="container-text">
           <h3 class="description-category">${e}</h3>
-          <p class="description-category-par">${s}</p>
+          <p class="description-category-par">${t}</p>
         </div>      
       </div>
     </li>
-  `}function I(e,s){n.innerHTML=Array(e).fill(1).map((i,a)=>i+a).map(P).join("");const t=n.children[s-1];t.classList.add("active"),t.firstElementChild.disabled=!0}function P(e){return`
+  `}function F(e,t){o.innerHTML=Array(e).fill(1).map((a,i)=>a+i).map(N).join("");const s=o.children[t-1];s.classList.add("active"),s.firstElementChild.disabled=!0}function N(e){return`
     <li class="page" data-page="${e}">
       <button>${e}</button>
     </li>
-  `}function U(e){var t;const s=(t=e.target.closest(".page"))==null?void 0:t.dataset.page;s&&d(l,s).then(p)}document.querySelector(".exercises-nav-list");const u=document.querySelector(".exercises-container");document.querySelector(".exercise-card");const A=document.querySelector(".exercises-gallery"),O="https://energyflow.b.goit.study/api/",v="is-hidden";u.addEventListener("click",F);u.classList.remove(v);x("Muscles").then(f);async function F(e){console.log(e.target);const{filter:s}=e.target.dataset;s&&(await x(s).then(f),u.classList.add(v))}async function x(e){return fetch(`${O}exercises?filter=${e}&page=1&limit=12`).then(s=>s.json()).then(s=>s.results)}function _({bodyPart:e,target:s,name:t,burnedCalories:i,rating:a,time:r}){return`<li class = "list-exercises" data-filter="${t}"><div class="options">
+  `}function W(e){var s;const t=(s=e.target.closest(".page"))==null?void 0:s.dataset.page;t&&d(l,t).then(u)}document.querySelector(".exercises-nav-list");const p=document.querySelector(".exercises-container");document.querySelector(".exercise-card");const J=document.querySelector(".exercises-gallery"),z="https://energyflow.b.goit.study/api/",y="is-hidden";p.addEventListener("click",G);p.classList.remove(y);b("Muscles").then($);async function G(e){console.log(e.target);const{filter:t}=e.target.dataset;t&&(await b(t).then($),p.classList.add(y))}async function b(e){return fetch(`${z}exercises?filter=${e}&page=1&limit=12`).then(t=>t.json()).then(t=>t.results)}function K({bodyPart:e,target:t,name:s,burnedCalories:a,rating:i,time:c}){return`<li class = "list-exercises" data-filter="${s}"><div class="options">
   <div class="box-up">
   <div class="box-left">
   <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-  <div class="rating-stars"><p class="rating-par">${a}</p><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-star"></use></svg></div></div>
+  <div class="rating-stars"><p class="rating-par">${i}</p><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-star"></use></svg></div></div>
 
   
   <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="../svg/icons.svg#icon-arrow"></use></svg></button>
@@ -24,15 +25,15 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";import{a as o,i as c}from"./
            
             <div class="exercises-par"> 
             <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="../svg/icons.svg#icon-running-man"></use></svg></div>
-            <p class="ex-name">${t}</p>
+            <p class="ex-name">${s}</p>
             </div>
            
-            <p class="options-item"><span class="hid-txt">Burned calories:</span>${i}/${r}</p>
+            <p class="options-item"><span class="hid-txt">Burned calories:</span>${a}/${c}</p>
             <div class="info-ex">
             <p class="options-item"><span class="hid-txt">Body part:</span>${e}</p>
-            <p class="options-item"><span class="hid-txt">Target:</span>${s}</p></div>
+            <p class="options-item"><span class="hid-txt">Target:</span>${t}</p></div>
             </div>
-            </li>`}function f(e){A.innerHTML=e.map(_).join("")}const h=document.querySelector(".modal-backdrop"),N=document.querySelector(".exercises-gallery");document.querySelector(".exercise-close-btn");const W="is-hidden";N.addEventListener("click",z);async function z(e){if(e.target.nodeName!=="BUTTON")return;const s=e.target.closest("[data-filter]").dataset.filter;(await o.get("https://energyflow.b.goit.study/api/exercises").then(i=>i.data.results).catch(i=>console.log(i))).map(i=>{i.name===s&&(h.classList.remove(W),D(i))})}function D(e={}){const{_id:s,bodyPart:t,equipment:i,time:a,target:r,burnedCalories:y,gifUrl:b,name:$,popularity:E,rating:w,description:L}=e,S=`<div class="exercises-modal-window">
+            </li>`}function $(e){J.innerHTML=e.map(K).join("")}const w=document.querySelector(".modal-backdrop"),V=document.querySelector(".exercises-gallery");document.querySelector(".exercise-close-btn");const Y="is-hidden";V.addEventListener("click",X);async function X(e){if(e.target.nodeName!=="BUTTON")return;const t=e.target.closest("[data-filter]").dataset.filter;(await n.get("https://energyflow.b.goit.study/api/exercises").then(a=>a.data.results).catch(a=>console.log(a))).map(a=>{a.name===t&&(w.classList.remove(Y),Z(a))})}function Z(e={}){const{_id:t,bodyPart:s,equipment:a,time:i,target:c,burnedCalories:S,gifUrl:E,name:L,popularity:q,rating:M,description:k}=e,B=`<div class="exercises-modal-window">
           <div class="exercise-container">
             <button class="exercise-close-btn" type="button">
               <svg
@@ -46,45 +47,45 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";import{a as o,i as c}from"./
             </button>
             <div class="exercise-image-wrapper">
               <img
-                src="${b}"
+                src="${E}"
                 alt=""
                 class="exercise-image-modal"
               />
             </div>
             <div class="exercise-info-wrapper">
               <div class="exercise-name-container decorate-line">
-                <p class="exercise-name">${$}</p>
-                <p class="exercise-rating">${w}</p>
+                <p class="exercise-name">${L}</p>
+                <p class="exercise-rating">${M}</p>
               </div>
               <div class="exercise-params-container decorate-line">
                 <ul class="exercise-params-list">
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Target</p>
-                    <p class="exercise-param-value exercise-param-target">${r}</p>
+                    <p class="exercise-param-value exercise-param-target">${c}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Body part</p>
-                    <p class="exercise-param-value exercise-param-bodypart">${t}</p>
+                    <p class="exercise-param-value exercise-param-bodypart">${s}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Equipment</p>
-                    <p class="exercise-param-value exercise-param-equipment">${i}</p>
+                    <p class="exercise-param-value exercise-param-equipment">${a}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Popular</p>
-                    <p class="exercise-param-value exercise-param-popularuty">${E}</p>
+                    <p class="exercise-param-value exercise-param-popularuty">${q}</p>
                   </li>
                   <li class="exercise-params-card">
                   <p class="exercise-param-name">Burned calories</p>
-                  <p class="exercise-param-value exercise-param-popularuty">${y}/${a} m</p></li>
+                  <p class="exercise-param-value exercise-param-popularuty">${S}/${i} m</p></li>
                 </ul>
               </div>
-              <p class="exercise-descr">${L}</p>
+              <p class="exercise-descr">${k}</p>
               <div class="exercise-buttons">
                 <button
                   class="exercise-favorite-btn"
                   type="submit"
-                  data="${s}"
+                  data="${t}"
                 >
                   Add to favorites
                   <svg
@@ -94,11 +95,11 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";import{a as o,i as c}from"./
                   <use href="./svg/icons.svg#icon-heart"></use>
                   </svg>
                 </button>
-                <button class="exercise-raiting-btn" type="submit" data="${s}">
+                <button class="exercise-raiting-btn" type="submit" data="${t}">
                   Give a rating
                 </button>
               </div>
             </div>
           </div>
-        </div>`;h.innerHTML=S}document.getElementById("footerForm").addEventListener("submit",function(e){e.preventDefault();const s=document.getElementById("emailInput").value;if(!G(s)){c.error({title:"Error",message:"Please enter a valid email address",position:"topRight"});return}o.post("https://energyflow.b.goit.study/api/subscription",{email:s},{headers:{"Content-Type":"application/json"}}).then(function(t){console.log(t.data),c.success({title:"Success",message:"Subscription created successfully!",position:"topRight"}),document.getElementById("emailInput").value=""}).catch(function(t){console.error("Error:",t),c.error({title:"Error",message:"Failed to create subscription",position:"topRight"})})});function G(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
+        </div>`;w.innerHTML=B}document.getElementById("footerForm").addEventListener("submit",function(e){e.preventDefault();const t=document.getElementById("emailInput").value;if(!ee(t)){r.error({title:"Error",message:"Please enter a valid email address",position:"topRight"});return}n.post("https://energyflow.b.goit.study/api/subscription",{email:t},{headers:{"Content-Type":"application/json"}}).then(function(s){console.log(s.data),r.success({title:"Success",message:"Subscription created successfully!",position:"topRight"}),document.getElementById("emailInput").value=""}).catch(function(s){console.error("Error:",s),r.error({title:"Error",message:"Failed to create subscription",position:"topRight"})})});function ee(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
 //# sourceMappingURL=commonHelpers2.js.map
