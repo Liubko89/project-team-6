@@ -1,5 +1,6 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
 const exercisesContainer = document.querySelector('.exercises-container');
+const exerciseGroup = document.querySelector('.exercise-group');
 const pagination = document.querySelector('.pagination');
 const BASE_URL = 'https://energyflow.b.goit.study/api';
 let currentFilter = 'Muscles';
@@ -9,7 +10,7 @@ pagination.addEventListener('click', handleSwitchPage);
 
 getExercises(currentFilter).then(render);
 
-async function handleContainerMuscles(evt) {
+export default async function handleContainerMuscles(evt) {
   const { filter } = evt.target.dataset;
   if (!filter) return;
 
@@ -41,6 +42,7 @@ function render({ results, page, totalPages }) {
 function renderExerciseCards(exercises) {
   exercisesContainer.innerHTML = exercises.map(buildExerciseCard).join('');
 }
+
 
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
@@ -88,4 +90,19 @@ function handleSwitchPage(evt) {
   if (!page) return;
 
   getExercises(currentFilter, page).then(render);
+}
+exercisesContainer.addEventListener('click', handleExerciseCardClick);
+
+function handleExerciseCardClick(event) {
+  const clickedElement = event.target;
+  const exerciseCard = clickedElement.closest('.exercise-card');
+
+  if (!exerciseCard) return; 
+
+  const name = exerciseCard.querySelector('.description-category').textContent;
+
+  exerciseGroup.textContent = name;
+
+
+  console.log(name); 
 }

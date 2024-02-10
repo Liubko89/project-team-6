@@ -5,6 +5,7 @@ const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
 const breadcrumb = document.querySelector('.header-box');
 const filterBtn = document.querySelector('.exercises-search');
+const exerciseGroup = document.querySelector('.exercise-group');
 const exercisesFilterSection = document.querySelector(
   '.exercise-filters-section'
 );
