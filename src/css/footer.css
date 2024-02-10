@@ -1,0 +1,146 @@
+.footer-container {
+  background-image: url(../img/footer/footer-bg-desk.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50px;
+}
+
+.aa {
+  display: flex;
+  justify-content: center;
+  gap: 180px;
+}
+
+.energy-flow {
+  display: grid;
+  color: rgb(246, 246, 246);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 28px;
+  text-decoration: none;
+  margin-top: 66px;
+  letter-spacing: 1.6px;
+}
+
+.footer-ul {
+  display: flex;
+  list-style: none;
+  margin: 30px 0 0 0;
+  padding: 0;
+  gap: 10px;
+}
+
+.footer-svg {
+  fill: #7e847f;
+  border: 1px solid rgba(246, 246, 246, 0.2);
+  border-radius: 10px;
+  padding: 10.8px;
+}
+
+.footer-svg:hover {
+  fill: #5f6560;
+  border: 1px solid rgba(95, 101, 96, 0.2);
+}
+
+.footer-h2 {
+  width: 444px;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 62px;
+  color: #f6f6f6;
+}
+
+.span-footer {
+  color: #f6f6f64d;
+}
+
+.footer-send {
+  width: 352px;
+  padding: 0px;
+  margin-top: 44px;
+}
+
+.footer-p {
+  color: rgb(246, 246, 246);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.8px;
+}
+
+#emailInput {
+  background-color: transparent;
+  border: 1px solid rgb(246, 246, 246);
+  border-radius: 30px;
+  padding: 12px 137px 12px 14px;
+  color: rgba(246, 246, 246, 0.6);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#submitButton {
+  border-radius: 30px;
+  background: rgb(126, 132, 127);
+  padding: 12px 157px;
+  margin-top: 20px;
+  border: none;
+  color: rgb(246, 246, 246);
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+#submitButton:hover {
+  background: rgb(95, 101, 96);
+}
+
+.footer-pre {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 110px;
+  color: rgb(246, 246, 246);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.Privacy-Policy {
+  padding-left: 25px;
+}
+.a {
+  padding: 0 5px;
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  footer {
+    background-image: url(./Rectangle\ 42208.png);
+    width: 736px;
+    height: 576px;
+  }
+
+  .aa {
+    display: grid;
+    position: relative;
+    right: 150px;
+    gap: 0;
+    height: 420px;
+  }
+
+  .footer-h2 {
+    bottom: 162px;
+    position: relative;
+    left: 300px;
+    width: 350px;
+  }
+
+  .footer-send {
+    position: relative;
+    left: 300px;
+    margin: 0;
+    bottom: 200px;
+  }
+}
+
+@media screen and (min-width: 325px) and (max-width: 425px) {
+}
