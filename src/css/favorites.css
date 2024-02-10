@@ -15,10 +15,15 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
+    letter-spacing: -0.07em;
   }
 
   .favorites-ranning-man{
     fill: white;
+  }
+
+  .home-favorite{
+    
   }
 
   .first-favorites-block{
@@ -29,7 +34,6 @@
     display: flex;
     position: relative;
   }
-
 
   .quote-text{
     color: rgba(246, 246, 246, 1);
@@ -151,7 +155,34 @@
       font-size: 28px;
       font-weight: 700;
       line-height: 28px;
-      letter-spacing: -0.2px;
+      letter-spacing: -0.07em;
+    }
+
+    .home-favorite{
+      width: 211px;
+      background-color: rgba(126, 132, 127, 1);
+      border-radius: 60px;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .favorite-in-home-favorite{
+      background-color: rgba(255, 255, 255, 1);
+      width: 95px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      height: 36px;
+    }
+
+    .home-in-favorite{
+      color: #fff;
     }
 
     .dots{
