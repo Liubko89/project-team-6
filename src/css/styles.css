@@ -16,6 +16,7 @@
 body {
   font-family: 'DM Sans';
   color: var(--black);
+  background-color: rgba(246, 246, 246, 1);
 }
 
 .container {
