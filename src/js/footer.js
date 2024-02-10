@@ -1,12 +1,12 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 
+import 'izitoast/dist/css/iziToast.min.css';
 
 document
   .getElementById('footerForm')
   .addEventListener('submit', function (event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const email = document.getElementById('emailInput').value;
 
@@ -36,7 +36,7 @@ document
           message: 'Subscription created successfully!',
           position: 'topRight',
         });
-        document.getElementById('emailInput').value = ''; 
+        document.getElementById('emailInput').value = '';
       })
       .catch(function (error) {
         console.error('Error:', error);
