@@ -1,6 +1,7 @@
-/* .is-hidden {
+.is-hidden {
   display: none;
-} */
+}
+
 .container-exercises-home {
   padding: 40px 20px;
   border-radius: 30px;
@@ -35,6 +36,43 @@
   text-align: left;
   color: #1b1b1b80;
   padding-left: 8px;
+}
+
+.exercises-toolbar {
+  padding-bottom: 40px;
+}
+
+.searching-input {
+  border-radius: 30px;
+  border: none;
+  width: 295px;
+  height: 42px;
+  position: relative;
+}
+input::placeholder {
+  padding-left: 10px;
+  margin-left: 10px;
+  text-indent: 10px;
+}
+.searching-input#placeholder {
+  padding-left: 16px;
+}
+
+.searching-btn {
+  border: none;
+  background-color: #fff;
+  fill: #101112;
+  /* top: 10%;
+  left: 10%;   */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
 }
 .list-exercises {
   padding-bottom: 20px;
@@ -87,10 +125,13 @@ div.work-div {
   font-weight: 400;
 }
 .icon-arrow {
-  fill: rgba(27, 27, 27, 1);
+  fill: transparent;
+  stroke: #1b1b1b;
 }
 .exercises-par {
   display: flex;
+  gap: 16px;
+
   padding-top: 25px;
   padding-bottom: 16px;
   font-size: 20px;
@@ -106,12 +147,18 @@ div.work-div {
 }
 .icon-men {
   fill: #fff;
-  top: 10%;
-  left: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 1;
   position: absolute;
 }
 .ex-name {
-  padding-left: 16px;
+  width: 223px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
