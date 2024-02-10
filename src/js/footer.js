@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import iziToast from 'izitoast';
 
@@ -53,4 +52,3 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
-
