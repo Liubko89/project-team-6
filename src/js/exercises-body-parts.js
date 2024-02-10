@@ -59,8 +59,9 @@ function createExerciseCard({
   burnedCalories,
   rating,
   time,
+  _id,
 }) {
-  return `<li class = "list-exercises" data-filter="${name}"><div class="options">
+  return `<li class = "list-exercises" id="${_id}" data-filter="${name}"><div class="options">
   <div class="box-up">
   <div class="box-left">
   <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
