@@ -110,6 +110,7 @@
     height: 884px;
     flex-grow: 1;
     padding: 215px 32px 192px 32px;
+    border-radius: 50px;
     border-top-left-radius: 0;
   }
   .hero-title {
