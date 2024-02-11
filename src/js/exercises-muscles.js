@@ -91,6 +91,8 @@ function handleSwitchPage(evt) {
 
   getExercises(currentFilter, page).then(render);
 }
+
+///////////////////////////
 exercisesContainer.addEventListener('click', handleExerciseCardClick);
 
 function handleExerciseCardClick(event) {

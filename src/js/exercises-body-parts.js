@@ -5,10 +5,11 @@ const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
 const breadcrumb = document.querySelector('.header-box');
 const filterBtn = document.querySelector('.exercises-search');
-const exerciseGroup = document.querySelector('.exercise-group');
 const exercisesFilterSection = document.querySelector(
   '.exercise-filters-section'
 );
+const musclesButton = document.getElementById('muscles-button');
+// const equipmenBtn = document.getElementById('equipment-button');
 
 // let currentGroup = 'Waist';
 
@@ -19,6 +20,16 @@ const filterDict = {
   Equipment: 'equipment',
 };
 const hiddenClass = 'is-hidden';
+
+function selectBtn() {
+  musclesButton.disabled = false;
+  musclesButton.classList.add('active');
+
+  const activeButton = document.querySelector('.exercises-button.active');
+  if (activeButton && activeButton !== musclesButton) {
+    activeButton.classList.remove('active');
+  }
+}
 
 exGroupCardList.addEventListener('click', handleGroupSelection);
 hiddenContainer.classList.remove(hiddenClass);
