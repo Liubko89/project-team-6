@@ -75,6 +75,10 @@
   line-height: 24px;
 }
 
+#emailInput:focus {
+  outline: none;
+}
+
 #submitButton {
   width: 295px;
   border-radius: 30px;
