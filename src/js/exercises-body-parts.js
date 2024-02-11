@@ -1,15 +1,15 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
 const hiddenContainer = document.querySelector('.fetch-container');
 const exGroupCardList = document.querySelector('.exercises-container');
-const imageEl = document.querySelector('.exercise-card');
+// const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
-const breadcrumb = document.querySelector('.header-box');
-const filterBtn = document.querySelector('.exercises-search');
+// const breadcrumb = document.querySelector('.header-box');
+// const filterBtn = document.querySelector('.exercises-search');
 const exercisesFilterSection = document.querySelector('.exercises-toolbar');
-const musclesButton = document.getElementById('muscles-button');
+// const musclesButton = document.getElementById('muscles-button');
 const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
-const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
+// const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
 
 let exercises, pageCount;
 let searchFilter;
@@ -60,11 +60,11 @@ async function handleGroupSelection(evt) {
   hiddenContainer.classList.add(hiddenClass);
   exercisesFilterSection.classList.remove(hiddenClass);
 
-  filterBtn.addEventListener('click', handleBackClick);
+  containerMuscles.addEventListener('click', handleBackClick);
 
   function handleBackClick(evt) {
     console.log(evt.target);
-    if (evt.currentTarget === filterBtn) {
+    if (evt.currentTarget === containerMuscles) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
     }
