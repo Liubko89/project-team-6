@@ -1,5 +1,4 @@
-import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vendor-8cce9181.js";l.defaults.baseURL="https://energyflow.b.goit.study/api";const B="https://energyflow.b.goit.study/api",x=document.querySelector(".quote__backend");async function T(){x.innerHTML='<span class="loader"></span>';try{return(await l.get(`${B}/quote`)).data}catch(e){throw n.error({title:"Wrong",message:"Try again",position:"topRight"}),e}}function D(e,t){return`<p class="quote__backend-text">${t}</p>
-    <p class="quote__backend-author">${e}</p>`}async function M(){try{const{author:e,quote:t}=await T(),s={author:e,quote:t,savedDate:new Date().toLocaleDateString()};localStorage.setItem("quote",JSON.stringify(s)),localStorage.setItem("savedDate",s.savedDate),f(e,t)}catch(e){console.error(e)}}function f(e,t){x.innerHTML=D(e,t)}async function h(){const e=JSON.parse(localStorage.getItem("quote")),t=localStorage.getItem("savedDate"),s=new Date().toLocaleDateString();e&&t===s?f(e.author,e.quote):await M()}h();function y(){const e=new Date,t=new Date(e.getFullYear(),e.getMonth(),e.getDate()+1,0,0,0,0)-e;setTimeout(function(){h(),y()},t)}y();const b=document.querySelector(".exercises-nav-list"),$=document.querySelector(".exercises-container"),R=document.querySelector(".exercise-group"),o=document.querySelector(".pagination"),I="https://energyflow.b.goit.study/api";let g="Muscles";b.addEventListener("click",_);o.addEventListener("click",P);m(g).then(v);async function _(e){const{filter:t}=e.target.dataset;if(!t)return;g=t,await m(t).then(v);const s=b.querySelector(".active"),a=e.target;s.disabled=!1,a.disabled=!0,s.classList.remove("active"),a.classList.add("active")}async function m(e,t=1){return fetch(`${I}/filters?filter=${e}&page=${t}&limit=12`).then(s=>s.json())}function v({results:e,page:t,totalPages:s}){U(e),H(s,t)}function U(e){$.innerHTML=e.map(A).join("")}function A({name:e,filter:t,imgUrl:s}){return`
+import"./assets/quote-f82eba4a.js";import{a as p,i as l}from"./assets/vendor-db25513e.js";p.defaults.baseURL="https://energyflow.b.goit.study/api";const v=document.querySelector(".exercises-nav-list"),f=document.querySelector(".exercises-container"),w=document.querySelector(".exercise-group"),n=document.querySelector(".pagination"),q="https://energyflow.b.goit.study/api";let m="Muscles";v.addEventListener("click",C);n.addEventListener("click",R);g(m).then(x);async function C(e){const{filter:t}=e.target.dataset;if(!t)return;m=t,await g(t).then(x);const s=v.querySelector(".active"),i=e.target;s.disabled=!1,i.disabled=!0,s.classList.remove("active"),i.classList.add("active")}async function g(e,t=1){return fetch(`${q}/filters?filter=${e}&page=${t}&limit=12`).then(s=>s.json())}function x({results:e,page:t,totalPages:s}){B(e),T(s,t)}function B(e){f.innerHTML=e.map(k).join("")}function k({name:e,filter:t,imgUrl:s}){return`
     <li class="exercise-card" data-filter="${t}" data-group="${e}">
       <div class="exercise-card-img">
         <img class="exercise-card-img" src="${s}" alt="${e}">
@@ -9,15 +8,15 @@ import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vend
         </div>      
       </div>
     </li>
-  `}function H(e,t){if(e<=1){o.innerHTML="";return}o.innerHTML=Array(e).fill(1).map((a,r)=>a+r).map(Q).join("");const s=o.children[t-1];s.classList.add("active"),s.firstElementChild.disabled=!0}function Q(e){return`
+  `}function T(e,t){if(e<=1){n.innerHTML="";return}n.innerHTML=Array(e).fill(1).map((i,a)=>i+a).map(M).join("");const s=n.children[t-1];s.classList.add("active"),s.firstElementChild.disabled=!0}function M(e){return`
     <li class="page" data-page="${e}">
       <button>${e}</button>
     </li>
-  `}function P(e){var s;const t=(s=e.target.closest(".page"))==null?void 0:s.dataset.page;t&&m(g,t).then(v)}$.addEventListener("click",j);function j(e){const s=e.target.closest(".exercise-card");if(!s)return;const a=s.querySelector(".description-category").textContent;R.textContent=a,console.log(a)}document.querySelector(".exercises-nav-list");const u=document.querySelector(".exercises"),F=document.querySelector(".exercises-container");document.querySelector(".exercise-card");const O=document.querySelector(".exercises-gallery");document.querySelector(".header-box");const G=document.querySelector(".exercises-search"),p=document.querySelector(".exercise-filters-section");document.getElementById("muscles-button");const N="https://energyflow.b.goit.study/api/",W={Muscles:"muscles","Body parts":"bodypart",Equipment:"equipment"},c="is-hidden";F.addEventListener("click",J);u.classList.remove(c);p.classList.add(c);async function J(e){const t=e.target.closest(".exercise-card");if(!t)return;const{filter:s,group:a}=t.dataset;await z(W[s],a).then(V),u.classList.add(c),p.classList.remove(c),G.addEventListener("click",r);function r(i){console.log(i.target),currentTarget===i.target&&(u.classList.remove(c),p.classList.add(c))}}async function z(e,t){return fetch(`${N}exercises?${e}=${t}&page=1&limit=12`).then(s=>s.json()).then(s=>s.results)}function K({bodyPart:e,target:t,name:s,burnedCalories:a,rating:r,time:i,_id:d}){return`<li class = "list-exercises" id="${d}" data-filter="${s}"><div class="options">
+  `}function R(e){var s;const t=(s=e.target.closest(".page"))==null?void 0:s.dataset.page;t&&g(m,t).then(x)}f.addEventListener("click",I);function I(e){const s=e.target.closest(".exercise-card");if(!s)return;const i=s.querySelector(".description-category").textContent;w.textContent=i,console.log(i)}document.querySelector(".exercises-nav-list");const d=document.querySelector(".exercises"),P=document.querySelector(".exercises-container");document.querySelector(".exercise-card");const j=document.querySelector(".exercises-gallery");document.querySelector(".header-box");const H=document.querySelector(".exercises-search"),u=document.querySelector(".exercise-filters-section");document.getElementById("muscles-button");const U="https://energyflow.b.goit.study/api/",A={Muscles:"muscles","Body parts":"bodypart",Equipment:"equipment"},c="is-hidden";P.addEventListener("click",F);d.classList.remove(c);u.classList.add(c);async function F(e){const t=e.target.closest(".exercise-card");if(!t)return;const{filter:s,group:i}=t.dataset;await G(A[s],i).then(_),d.classList.add(c),u.classList.remove(c),H.addEventListener("click",a);function a(r){console.log(r.target),currentTarget===r.target&&(d.classList.remove(c),u.classList.add(c))}}async function G(e,t){return fetch(`${U}exercises?${e}=${t}&page=1&limit=12`).then(s=>s.json()).then(s=>s.results)}function O({bodyPart:e,target:t,name:s,burnedCalories:i,rating:a,time:r,_id:o}){return`<li class = "list-exercises" id="${o}" data-filter="${s}"><div class="options">
   <div class="box-up">
   <div class="box-left">
   <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-  <div class="rating-stars"><p class="rating-par">${r}</p><svg class="icon-star" width="18" height="18"><use href="./svg/icons.svg#icon-star"></use></svg></div></div>
+  <div class="rating-stars"><p class="rating-par">${a}</p><svg class="icon-star" width="18" height="18"><use href="./svg/icons.svg#icon-star"></use></svg></div></div>
 
   
   <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="./svg/icons.svg#icon-arrow"></use></svg></button>
@@ -28,12 +27,12 @@ import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vend
             <h4 class="ex-name">${s}</h4>
             </div>
            
-            <p class="options-item"><span class="hid-txt">Burned calories:</span>${a}/${i}</p>
+            <p class="options-item"><span class="hid-txt">Burned calories:</span>${i}/${r}</p>
             <div class="info-ex">
             <p class="options-item"><span class="hid-txt">Body part:</span>${e}</p>
             <p class="options-item"><span class="hid-txt">Target:</span>${t}</p></div>
             </div>
-            </li>`}function V(e){O.innerHTML=e.map(K).join("")}const S=document.querySelector(".modal-backdrop"),Y=document.querySelector(".exercises-gallery");document.querySelector(".exercise-close-btn");const X="is-hidden";Y.addEventListener("click",Z);async function Z(e){if(e.target.nodeName!=="BUTTON")return;const t=e.target.closest("[data-filter]").dataset.filter;(await l.get("https://energyflow.b.goit.study/api/exercises").then(a=>a.data.results).catch(a=>console.log(a))).map(a=>{a.name===t&&(S.classList.remove(X),ee(a))})}function ee(e={}){const{_id:t,bodyPart:s,equipment:a,time:r,target:i,burnedCalories:d,gifUrl:w,name:E,popularity:q,rating:L,description:k}=e,C=`<div class="exercises-modal-window">
+            </li>`}function _(e){j.innerHTML=e.map(O).join("")}const h=document.querySelector(".modal-backdrop"),D=document.querySelector(".exercises-gallery");document.querySelector(".exercise-close-btn");const N="is-hidden";D.addEventListener("click",W);async function W(e){if(e.target.nodeName!=="BUTTON")return;const t=e.target.closest("[data-filter]").dataset.filter;(await p.get("https://energyflow.b.goit.study/api/exercises").then(i=>i.data.results).catch(i=>console.log(i))).map(i=>{i.name===t&&(h.classList.remove(N),z(i))})}function z(e={}){const{_id:t,bodyPart:s,equipment:i,time:a,target:r,burnedCalories:o,gifUrl:y,name:b,popularity:$,rating:E,description:L}=e,S=`<div class="exercises-modal-window">
           <div class="exercise-container">
             <button class="exercise-close-btn" type="button">
               <svg
@@ -47,21 +46,21 @@ import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vend
             </button>
             <div class="exercise-image-wrapper">
               <img
-                src="${w}"
+                src="${y}"
                 alt=""
                 class="exercise-image-modal"
               />
             </div>
             <div class="exercise-info-wrapper">
               <div class="exercise-name-container decorate-line">
-                <p class="exercise-name">${E}</p>
-                <p class="exercise-rating">${L}</p>
+                <p class="exercise-name">${b}</p>
+                <p class="exercise-rating">${E}</p>
               </div>
               <div class="exercise-params-container decorate-line">
                 <ul class="exercise-params-list">
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Target</p>
-                    <p class="exercise-param-value exercise-param-target">${i}</p>
+                    <p class="exercise-param-value exercise-param-target">${r}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Body part</p>
@@ -69,18 +68,18 @@ import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vend
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Equipment</p>
-                    <p class="exercise-param-value exercise-param-equipment">${a}</p>
+                    <p class="exercise-param-value exercise-param-equipment">${i}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Popular</p>
-                    <p class="exercise-param-value exercise-param-popularuty">${q}</p>
+                    <p class="exercise-param-value exercise-param-popularuty">${$}</p>
                   </li>
                   <li class="exercise-params-card">
                   <p class="exercise-param-name">Burned calories</p>
-                  <p class="exercise-param-value exercise-param-popularuty">${d}/${r} m</p></li>
+                  <p class="exercise-param-value exercise-param-popularuty">${o}/${a} m</p></li>
                 </ul>
               </div>
-              <p class="exercise-descr">${k}</p>
+              <p class="exercise-descr">${L}</p>
               <div class="exercise-buttons">
                 <button
                   class="exercise-favorite-btn"
@@ -101,5 +100,5 @@ import"./assets/header-hero-3beefad7.js";import{a as l,i as n}from"./assets/vend
               </div>
             </div>
           </div>
-        </div>`;S.innerHTML=C}document.getElementById("footerForm").addEventListener("submit",function(e){e.preventDefault();const t=document.getElementById("emailInput").value;if(!te(t)){n.error({title:"Error",message:"Please enter a valid email address",position:"topRight"});return}l.post("https://energyflow.b.goit.study/api/subscription",{email:t},{headers:{"Content-Type":"application/json"}}).then(function(s){console.log(s.data),n.success({title:"Success",message:"Subscription created successfully!",position:"topRight"}),document.getElementById("emailInput").value=""}).catch(function(s){console.error("Error:",s),n.error({title:"Error",message:"Failed to create subscription",position:"topRight"})})});function te(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
+        </div>`;h.innerHTML=S}document.getElementById("footerForm").addEventListener("submit",function(e){e.preventDefault();const t=document.getElementById("emailInput").value;if(!K(t)){l.error({title:"Error",message:"Please enter a valid email address",position:"topRight"});return}p.post("https://energyflow.b.goit.study/api/subscription",{email:t},{headers:{"Content-Type":"application/json"}}).then(function(s){console.log(s.data),l.success({title:"Success",message:"Subscription created successfully!",position:"topRight"}),document.getElementById("emailInput").value=""}).catch(function(s){console.error("Error:",s),l.error({title:"Error",message:"Failed to create subscription",position:"topRight"})})});function K(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
 //# sourceMappingURL=commonHelpers2.js.map
