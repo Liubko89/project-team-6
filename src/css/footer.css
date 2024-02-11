@@ -56,9 +56,6 @@
   border: #5f6560;
 }
 
-.footer-send {
-}
-
 .footer-p {
   color: rgb(246, 246, 246);
   font-size: 14px;
@@ -103,6 +100,16 @@
 
 .padding {
   padding: 0 5px;
+}
+
+@media screen and (max-width: 767.98px) and (min-resolution: 192dpi) {
+  .footer-div {
+    background-image: linear-gradient(
+        rgba(27, 27, 27, 0.7),
+        rgba(27, 27, 27, 0.7)
+      ),
+      url(../img/footer/footer-bg-mob@2x.png);
+  }
 }
 
 @media screen and (min-width: 736px) and (max-width: 1438px) {
@@ -173,9 +180,17 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .footer-container {
+@media screen and (max-width: 1439.98px) and (min-resolution: 192dpi) {
+  .footer-div {
+    background-image: linear-gradient(
+        rgba(27, 27, 27, 0.7),
+        rgba(27, 27, 27, 0.7)
+      ),
+      url(../img/footer/footer-bg-tab@2x.png);
   }
+}
+
+@media screen and (min-width: 1440px) {
   .footer-div {
     background-image: linear-gradient(
         to bottom,
@@ -214,8 +229,7 @@
     font-weight: 400;
     line-height: 62px;
   }
-  .span-footer {
-  }
+
   .footer-send {
     position: relative;
     left: 640px;
@@ -232,10 +246,6 @@
     justify-content: center;
     width: 100%;
   }
-  .Privacy-Policy {
-  }
-  .padding {
-  }
 
   #emailInput {
     width: 345px;
@@ -243,5 +253,15 @@
 
   #submitButton {
     width: 346px;
+  }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+  .footer-div {
+    background-image: linear-gradient(
+        rgba(27, 27, 27, 0.7),
+        rgba(27, 27, 27, 0.7)
+      ),
+      url(../img/footer/footer-bg-desk@2x.png);
   }
 }
