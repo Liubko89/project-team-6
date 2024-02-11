@@ -21,8 +21,8 @@ export default async function handleContainerMuscles(evt) {
   const prevBtn = containerMuscles.querySelector('.active');
   const nextBtn = evt.target;
 
-  prevBtn.disabled = false;
-  nextBtn.disabled = true;
+  // prevBtn.disabled = false;
+  // nextBtn.disabled = true;
 
   prevBtn.classList.remove('active');
   nextBtn.classList.add('active');
@@ -72,7 +72,7 @@ function renderPagination(pageCount, currentPage) {
   const currentPageItem = pagination.children[currentPage - 1];
 
   currentPageItem.classList.add('active');
-  currentPageItem.firstElementChild.disabled = true;
+  // currentPageItem.firstElementChild.disabled = true;
 }
 
 function buildPageButton(i) {
