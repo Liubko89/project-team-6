@@ -43,7 +43,6 @@ function renderExerciseCards(exercises) {
   exercisesContainer.innerHTML = exercises.map(buildExerciseCard).join('');
 }
 
-
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
     <li class="exercise-card" data-filter="${filter}" data-group="${name}">
@@ -99,12 +98,11 @@ function handleExerciseCardClick(event) {
   const clickedElement = event.target;
   const exerciseCard = clickedElement.closest('.exercise-card');
 
-  if (!exerciseCard) return; 
+  if (!exerciseCard) return;
 
   const name = exerciseCard.querySelector('.description-category').textContent;
 
   exerciseGroup.textContent = name;
 
-
-  console.log(name); 
+  console.log(name);
 }
