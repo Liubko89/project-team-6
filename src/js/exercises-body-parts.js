@@ -13,6 +13,8 @@ const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
 
 let exercises, pageCount;
+let searchFilter;
+let searchGroup;
 
 paginationExercises.addEventListener('click', handleSwitchPageExercises);
 
@@ -51,6 +53,9 @@ async function handleGroupSelection(evt) {
   if (!card) return;
   // currentGroup = { group };
   const { filter, group, page } = card.dataset;
+
+  searchFilter = filter;
+  searchGroup = group;
 
   await getExercises(filterDict[filter], group).then(renderExerciseCards);
   hiddenContainer.classList.add(hiddenClass);
@@ -177,3 +182,5 @@ function handleSwitchPageExercises(evt) {
 
   renderExerciseCards(page);
 }
+
+export { searchFilter, searchGroup, createExerciseCard, renderExerciseCards };
