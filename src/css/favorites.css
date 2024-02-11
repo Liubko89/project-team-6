@@ -3,18 +3,111 @@
     margin: 0;
     padding: 0;
   }
-  
-  .container {
-    max-width: 375px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+
+  .body-favorites{
+    padding: 80px 0;
   }
+
+  .favorites-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 20px 38px 40px;
+  }
+
+  .favorite-header-logo{
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.07em;
+  }
+
+  .favorites-ranning-man{
+    fill: white;
+  }
+
+  .home-favorite{
+
+  }
+
+  .first-favorites-block{
+    background-color: rgba(126, 132, 127, 1);
+    height: 272px;
+    border-radius: 30px;
+    padding: 40px 20px;
+    display: flex;
+    position: relative;
+  }
+
+  .quote-text{
+    color: rgba(246, 246, 246, 1);
+    display: flex;
+    align-items: center;
+    height: 30px;
+  }
+
+  .dots{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    fill: rgba(246, 246, 246, 1);
+  }
+
+  .quote-title{
+    display: flex;
+    height: 30px;
+  }
+
+  .hero-favorites{
+    width: 32px;
+    height: 32px;
+    background-color: rgba(246, 246, 246, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+  }
+
+
+  .third-favorites-block{
+    height: 272px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .third-favorites-block-content{
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+  }
+
+  .favorites-minutes{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 15px 0 6px;
+  }
+  
+  .daily-norm-favorites{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: rgba(27, 27, 27, 0.6);
+  }
+
+  .favorites-blocks{
+    margin-bottom: 20px;
+  }
+
+
   
   .favorite-sect-no-content{
     background-color: rgba(232, 232, 232, 1);
-    min-height: 400px;
+    min-height: 450px;
     height: 100%;
     border-radius: 30px;
     padding: 40px 20px;
@@ -26,16 +119,16 @@
     font-weight: 400;
     color: rgba(27, 27, 27, 1);
     line-height: 32px;
-    display: block;
-    margin: 0 0 80px 0;
+    letter-spacing: -0.2px;
+    margin-bottom: 80px;
   }
   
   .content-no-favorites{
     display: flex;
     flex-direction: column;
     width: 247px;
-    margin: 0 auto;
     align-items: center;
+    justify-content: center;
   }
   
   .dumbbell-photo{
@@ -50,16 +143,86 @@
     text-align: center;
     font-family: "DM Sans", sans-serif;
     color: rgba(27, 27, 27, 1);
-    letter-spacing: 0.3px;
   }
+
+  .central-block-content{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+
+  
   
   @media screen and (min-width: 768px) {
-    .container {
-      max-width: 768px;
-      padding-left: 16px;
-      padding-right: 16px;
+
+    .favorite-header-logo{
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 28px;
+      letter-spacing: -0.07em;
     }
-  
+
+    .home-favorite{
+      width: 211px;
+      background-color: rgba(126, 132, 127, 1);
+      border-radius: 60px;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .favorite-in-home-favorite{
+      background-color: rgba(255, 255, 255, 1);
+      width: 95px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      height: 36px;
+    }
+
+    .home-in-favorite{
+      color: #fff;
+    }
+
+    .dots{
+      width: 37px;
+      height: 31px;
+      top: 32px;
+      right: 80px;
+    }
+
+    .quote-text{
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .hero-favorites{
+      margin-right: 16px;
+    }
+
+    .first-favorites-block{
+      border-radius: 50px;
+      padding: 64px 80px;
+      margin-bottom: 16px;
+    }
+
+    .second-third-together{
+      display: flex;
+    }
+
+
+    .third-favorites-block , .second-favorites-photo{
+      height: 302px;
+      width: 368px;
+      border-radius: 50px;
+    }
+
     .dumbbell-photo{
       width: 115px;
     }
@@ -73,14 +236,21 @@
       line-height: 24px;
       font-weight: 400;
     }
+
+    .favorites-blocks{
+      margin-bottom: 16px;
+    }
   
     .favorite-sect-no-content{
       padding: 64px 48px;
+      border-radius: 50px;
+      height: 928px;
     }
   
     .title{
       font-size: 44px;
       line-height: 48px;
+      margin: 0;
     }
   
   }
@@ -89,4 +259,42 @@
     .container {
       max-width: 1440px;
     }
+
+    .favorites-blocks{
+      display: flex;
+    }
+
+    .first-favorites-block{
+      width: 704px;
+      height: 302px;
+      padding: 64px;
+    }
+
+    .dots{
+      right: 64px;
+    }
+
+    .third-favorites-block , .second-favorites-photo{
+      height: 302px;
+      width: 352px;
+      border-radius: 50px;
+    }
+
+    .first-favorites-block{
+      margin: 0;
+    }
+
+    .favorite-no-content-text{
+      font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    letter-spacing: -0.2px;
+    align-items: center;
+    }
+    
+    .favorite-sect-no-content{
+      height: 687px;
+    }
+
   }

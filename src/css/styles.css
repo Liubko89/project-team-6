@@ -16,6 +16,7 @@
 body {
   font-family: 'DM Sans';
   color: var(--black);
+  background-color: rgba(246, 246, 246, 1);
 }
 
 .container {
@@ -27,17 +28,11 @@ body {
 }
 
 .is-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  height: 0;
 }
 
 @media screen and (min-width: 768px) {

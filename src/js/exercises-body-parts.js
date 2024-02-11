@@ -1,5 +1,5 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
-const hiddenContainer = document.querySelector('.container-muscles');
+const hiddenContainer = document.querySelector('.exercises');
 const exGroupCardList = document.querySelector('.exercises-container');
 const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
@@ -59,8 +59,9 @@ function createExerciseCard({
   burnedCalories,
   rating,
   time,
+  _id,
 }) {
-  return `<li class = "list-exercises" data-filter="${name}"><div class="options">
+  return `<li class = "list-exercises" id="${_id}" data-filter="${name}"><div class="options">
   <div class="box-up">
   <div class="box-left">
   <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
