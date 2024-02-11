@@ -9,12 +9,9 @@
     <link rel="icon" type="image/svg+xml" href="/dumbbell.svg" />
   </head>
   <body class="body-favorites">
-
     <load ="partials/header.html" />
-    <load ="partials/quote.html" />
 
-
-<!-- 
+    <!-- 
   <header class="favorites-header container">
     <a href="./index.html" class="favorite-header-logo">energy.flow</a>
     <button
@@ -27,7 +24,7 @@
       </svg>
     </button>
   </header> -->
-<!--   
+    <!--   
 <section class="container favorites-blocks">
   <div class="first-favorites-block">
     <div class="quote-title">
@@ -46,76 +43,76 @@
     <div class="query-content"></div>
 
 </div> -->
-<div class="second-third-together">
-  <picture>
-    <source
-      media="(min-width: 768px)"
-      srcset="./img/favorites/fav-girl-mob@2x.png"
-      type="image/png"
-    />
-    <source
-      media="(max-width: 767px)"
-      srcset="./img/favorites/fav-girl-mob@2x.png"
-      type="image/png"
-    />
-    <img
-      class="second-favorites-photo"
-      src="./img/favorites/fav-girl-mob.png"
-      alt="girl"
-      loading="lazy"
-    />
-  </picture>
+    <div class="qoute-and-img container">
+      <load ="partials/quote.html" />
+      <div class="second-third-together">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="./img/favorites/fav-girl-mob@2x.png"
+            type="image/png"
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="./img/favorites/fav-girl-mob@2x.png"
+            type="image/png"
+          />
+          <img
+            class="second-favorites-photo"
+            src="./img/favorites/fav-girl-mob.png"
+            alt="girl"
+            loading="lazy"
+          />
+        </picture>
 
-
-  <div class="third-favorites-block">
-    <div class="third-favorites-block-content">
-      <svg class="dumbel-icon" width="16" height="12">
-        <use href="./svg/icons.svg#icon-letter-H"></use>
-      </svg>
-      <span class="favorites-minutes">110 min</span>
-      <span class="daily-norm-favorites">Daily norm of sports</span>
+        <div class="third-favorites-block">
+          <div class="third-favorites-block-content">
+            <svg class="dumbel-icon" width="16" height="12">
+              <use href="./svg/icons.svg#icon-letter-H"></use>
+            </svg>
+            <span class="favorites-minutes">110 min</span>
+            <span class="daily-norm-favorites">Daily norm of sports</span>
+          </div>
+        </div>
+      </div>
+      <!-- </section> -->
     </div>
-  </div>
-</div>
-</section>
-
-
-
 
     <div class="container">
       <section class="favorite-sect-no-content">
         <ul class="gallery"></ul>
         <h1 class="title">Favorites</h1>
         <div class="central-block-content">
-        <div class="content-no-favorites">
-          <picture>
-            <source
-              media="(min-width: 768px)"
-              srcset="./img/favorites/dumbbell@2x.png"
-              type="image/png"
-            />
-            <source
-              media="(max-width: 767px)"
-              srcset="./img/favorites/dumbbell-tab.png"
-              type="image/png"
-            />
-            <img
-              class="dumbbell-photo"
-              src="./img/favorites/dumbbell-tab.png"
-              alt="dumbbell"
-              loading="lazy"
-            />
-          </picture>
-          <div class="favorite-no-content-text">
-            It appears that you haven't added any exercises to your favorites
-            yet. To get started, you can add exercises that you like to your
-            favorites for easier access in the future.
+          <div class="content-no-favorites">
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcset="./img/favorites/dumbbell@2x.png"
+                type="image/png"
+              />
+              <source
+                media="(max-width: 767px)"
+                srcset="./img/favorites/dumbbell-tab.png"
+                type="image/png"
+              />
+              <img
+                class="dumbbell-photo"
+                src="./img/favorites/dumbbell-tab.png"
+                alt="dumbbell"
+                loading="lazy"
+              />
+            </picture>
+            <div class="favorite-no-content-text">
+              It appears that you haven't added any exercises to your favorites
+              yet. To get started, you can add exercises that you like to your
+              favorites for easier access in the future.
+            </div>
           </div>
-        </div>
         </div>
       </section>
     </div>
     <script src="./favorites.js" type="module"></script>
     <script src="./js/header-hero.js" type="module"></script>
+    <script src="./js/quote.js" type="module"></script>
   </body>
 </html>
