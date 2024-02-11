@@ -2,12 +2,16 @@
   padding: 40px 20px;
   border-radius: 30px;
   background-color: rgba(232, 232, 232, 1);
-  width: 736px;
+  max-width: 1440px;
   padding: 48px;
 }
 .header-box {
   display: flex;
   align-items: baseline;
+}
+
+.exercise-group::first-letter {
+  text-transform: uppercase;
 }
 
 .exercise-header {
@@ -41,7 +45,6 @@
 .searching-input {
   border-radius: 30px;
   border: none;
-  width: 295px;
   height: 42px;
   position: relative;
 }
@@ -54,25 +57,18 @@ input::placeholder {
   padding-left: 16px;
 }
 
+.exercises-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 .searching-btn {
-  border: none;
-  background-color: #fff;
-  fill: #101112;
-  /* top: 10%;
-  left: 10%;   */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  z-index: 1;
-  position: absolute;
+ display: none;
 }
 .list-exercises {
   padding-bottom: 20px;
-  width: 295px;
+  max-width: 424px;
 }
 .options {
   display: flex;
