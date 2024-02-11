@@ -1,4 +1,5 @@
-.pagination {
+.pagination,
+.pagination-exercises {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -19,6 +20,32 @@
 }
 
 .pagination .page button {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: rgba(27, 27, 27, 0.4);
+  background-color: rgba(232, 232, 232, 1);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-exercises .page-exercises.active button {
+  border: 1px solid #1b1b1b;
+  border-radius: 18px;
+  padding: 0px 12px;
+  width: 32px;
+  height: 32px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-exercises .page-exercises button {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 24px;
