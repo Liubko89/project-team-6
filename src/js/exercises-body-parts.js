@@ -9,6 +9,13 @@ const exercisesFilterSection = document.querySelector(
   '.exercise-filters-section'
 );
 const musclesButton = document.getElementById('muscles-button');
+const paginationExercises = document.querySelector('.pagination-exercises');
+const cardsPerPage = innerWidth < 1440 ? 8 : 9;
+
+let exercises, pageCount;
+
+paginationExercises.addEventListener('click', handleSwitchPageExercises);
+
 // const equipmenBtn = document.getElementById('equipment-button');
 
 // let currentGroup = 'Waist';
@@ -23,11 +30,12 @@ const hiddenClass = 'is-hidden';
 
 function selectBtn() {
   musclesButton.disabled = false;
-  musclesButton.classList.add('active');
+  musclesButton.classList.add('active-button');
 
   const activeButton = document.querySelector('.exercises-button.active');
   if (activeButton && activeButton !== musclesButton) {
-    activeButton.classList.remove('active');
+    activeButton.classList.remove('active-button');
+    activeButton.classList.add('inactive-button');
   }
 }
 
@@ -42,7 +50,7 @@ async function handleGroupSelection(evt) {
 
   if (!card) return;
   // currentGroup = { group };
-  const { filter, group } = card.dataset;
+  const { filter, group, page } = card.dataset;
 
   await getExercises(filterDict[filter], group).then(renderExerciseCards);
   hiddenContainer.classList.add(hiddenClass);
@@ -59,9 +67,11 @@ async function handleGroupSelection(evt) {
 }
 
 async function getExercises(filter, group) {
-  return fetch(`${BASE_URL}exercises?${filter}=${group}&page=1&limit=12`)
+  return fetch(`${BASE_URL}exercises?${filter}=${group}&limit=1e6`)
     .then(resp => resp.json())
-    .then(data => data.results);
+    .then(data => {
+      exercises = data.results;
+    });
 }
 
 function createExerciseCard({
@@ -96,8 +106,57 @@ function createExerciseCard({
             </li>`;
 }
 
-function renderExerciseCards(exercises) {
-  listExercisesEl.innerHTML = exercises.map(createExerciseCard).join('');
+function renderExercisePagination(page) {
+  pageCount = Math.ceil(exercises.length / cardsPerPage);
+
+  paginationExercises.innerHTML = Array(pageCount)
+    .fill(1)
+    .map((n, i) => n + i)
+    .map(
+      i =>
+        `<li class="page-exercises" data-page="${i}"><button id="prevPage">${i}</button></li>`
+    )
+    .join('');
+
+  const currentPageItem = paginationExercises.children[page - 1];
+
+  currentPageItem.classList.add('active');
+  currentPageItem.firstElementChild.disabled = true;
+
+  limitPagination(page);
+}
+
+function limitPagination(currentPage) {
+  for (const pageItem of [...paginationExercises.children]) {
+    const page = +pageItem.dataset.page;
+
+    if (
+      page !== 1 &&
+      page !== pageCount &&
+      (page < currentPage - 3 || page > currentPage + 3)
+    ) {
+      pageItem.remove();
+    }
+  }
+  const secondPage = paginationExercises.children[1]?.dataset.page;
+  const secondToLastPage =
+    paginationExercises.lastElementChild.previousElementSibling?.dataset.page;
+  if (secondPage > 2) {
+    paginationExercises.firstElementChild.after('...');
+  }
+  if (secondToLastPage < pageCount - 1) {
+    paginationExercises.lastElementChild.before('...');
+  }
+}
+
+function renderExerciseCards(page = 1) {
+  const i = (page - 1) * cardsPerPage;
+
+  const pageExercises = exercises.slice(i, i + cardsPerPage);
+
+  listExercisesEl.innerHTML = pageExercises.map(createExerciseCard).join('');
+
+  renderExercisePagination(page);
 }
 // function renderExerciseContainer({ results }) {
 //   renderExerciseCards(results);
@@ -110,3 +169,11 @@ function renderExerciseCards(exercises) {
 //     `<h3 class="exercise-group">${group}</h3>`
 //   );
 // }
+
+function handleSwitchPageExercises(evt) {
+  const page = +evt.target.closest('.page-exercises')?.dataset.page;
+
+  if (!page) return;
+
+  renderExerciseCards(page);
+}
