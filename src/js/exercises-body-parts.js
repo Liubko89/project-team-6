@@ -58,11 +58,12 @@ async function handleGroupSelection(evt) {
   await getExercises(filterDict[filter], group).then(renderExerciseCards);
   hiddenContainer.classList.add(hiddenClass);
   exercisesFilterSection.classList.remove(hiddenClass);
+
   filterBtn.addEventListener('click', handleBackClick);
 
   function handleBackClick(evt) {
     console.log(evt.target);
-    if (currentTarget === evt.target) {
+    if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
     }
