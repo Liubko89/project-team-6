@@ -42,13 +42,13 @@
   padding-bottom: 40px;
 }
 
-.searching-input {
+.input-search {
   border-radius: 30px;
   border: none;
   height: 42px;
   position: relative;
 }
-input::placeholder {
+.input-search::placeholder {
   padding-left: 10px;
   margin-left: 10px;
   text-indent: 10px;
@@ -98,9 +98,8 @@ div.work-div {
   background-color: rgba(126, 132, 127, 1);
   color: #fff;
 }
-.rating-par {
-} 
- .rating-stars {
+
+.rating-stars {
   padding-left: 16px;
   display: flex;
   gap: 2px;
@@ -200,15 +199,11 @@ div.work-div {
   inset: 6px;
 }
 
-@media screen and (min-width: 768px){
-
-  
-
+@media screen and (min-width: 768px) {
 }
 
-@media screen and (min-width: 1440px){
-  .list-exercises{
+@media screen and (min-width: 1440px) {
+  .list-exercises {
     max-width: 424px;
   }
-
 }
