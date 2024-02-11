@@ -12,6 +12,10 @@
   letter-spacing: -0.02em;
   margin-bottom: 20px;
 }
+.title-exercises {
+  display: flex;
+  align-items: center;
+}
 
 .exercises-nav-list {
   display: flex;
@@ -87,15 +91,27 @@
     padding: 64px 48px;
     width: 736px;
   }
-
+  .exercises-search {
+    display: flex;
+    margin-bottom: 35px;
+  }
   .exercises {
     font-size: 44px;
     line-height: 1.09;
-    letter-spacing: -2%;
+    letter-spacing: -0.07em;
     margin-bottom: 32px;
   }
-
+  .title-exercises,
+  .exercises-search {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .form-search {
+    margin-left: auto;
+  }
   .exercises-button {
+    padding: 10px 20px;
+    height: 48px;
     font-size: 16px;
     line-height: 1.5;
   }
@@ -105,7 +121,7 @@
   }
 
   .exercises-nav-list {
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
 
   .exercises-container {
@@ -144,7 +160,21 @@
     gap: 14px;
     flex-wrap: wrap;
   }
-
+  .exercises-search {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  .form-search {
+    margin-left: auto;
+  }
+  .title-exercises,
+  .exercises-search {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+  .exercises-nav-item {
+    height: 44px;
+  }
   .exercise-card {
     width: 313px;
   }
