@@ -243,17 +243,17 @@
     line-height: 62px;
   }
 
-  .footer-send {
-    position: relative;
-    left: 640px;
-    width: 300px;
-    bottom: 200px;
+  .footer-input-block {
+    display: flex;
+    gap: 150px;
   }
+
   .footer-p {
     width: 346px;
     font-size: 18px;
     line-height: 24px;
   }
+
   .footer-paragraph {
     display: flex;
     justify-content: center;
