@@ -206,6 +206,13 @@ div.work-div {
   .list-exercises {
     min-width: 313px;
   }
+  .rating-stars{
+    align-items: center;
+  }
+
+  .rating-par{
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 1440px) {

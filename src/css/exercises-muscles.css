@@ -36,7 +36,7 @@
 
 .exercises-button:hover,
 .exercises-button:focus,
-.exercises-button:disabled {
+.exercises-button.active {
   background-color: var(--grey);
   color: var(--white-dirty);
 }
