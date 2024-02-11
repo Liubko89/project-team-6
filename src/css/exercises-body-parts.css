@@ -57,18 +57,19 @@ input::placeholder {
   padding-left: 16px;
 }
 
-.exercises-gallery{
+.exercises-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: center;
+  padding: 48px;
 }
 
 .searching-btn {
- display: none;
+  display: none;
 }
 .list-exercises {
-  padding-bottom: 20px;
-  max-width: 424px;
+  max-width: 295px;
 }
 .options {
   display: flex;
@@ -97,9 +98,9 @@ div.work-div {
   background-color: rgba(126, 132, 127, 1);
   color: #fff;
 }
-/* .rating-par {
-} */
-.rating-stars {
+.rating-par {
+} 
+ .rating-stars {
   padding-left: 16px;
   display: flex;
   gap: 2px;
@@ -150,7 +151,7 @@ div.work-div {
   position: absolute;
 }
 .ex-name {
-  width: 223px;
+  width: 294px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -175,8 +176,6 @@ div.work-div {
   text-align: left;
 }
 
-/* Настройки для загрузки */
-
 .loader {
   width: 48px;
   height: 48px;
@@ -199,4 +198,17 @@ div.work-div {
   border-color: #c2c5c7;
   animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
   inset: 6px;
+}
+
+@media screen and (min-width: 768px){
+
+  
+
+}
+
+@media screen and (min-width: 1440px){
+  .list-exercises{
+    max-width: 424px;
+  }
+
 }
