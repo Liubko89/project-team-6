@@ -72,10 +72,6 @@
   background-color: var(--grey);
   overflow: auto;
 }
-/* .is-hidden {
-  opacity: 0;
-  pointer-events: none;
-} */
 
 .mob-wrap {
   display: flex;
