@@ -1,10 +1,11 @@
 import axios from 'axios';
+import icons from '../svg/icons.svg';
 
-const modalEl = document.querySelector('.modal-backdrop');
+const modalBackdrop = document.querySelector('.modal-backdrop');
 const startBtn = document.querySelector('.exercises-gallery');
 const closebtn = document.querySelector('.exercise-close-btn');
 
-const hiddenClass = 'is-hidden';
+const modalVisibility = 'is-open';
 
 startBtn.addEventListener('click', handleClick);
 
@@ -12,29 +13,44 @@ async function handleClick(event) {
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-  const res = event.target.closest('[data-filter]').dataset.filter;
-  const arr = await axios
-    .get('https://energyflow.b.goit.study/api/exercises')
-    .then(data => data.data.results)
-    .catch(err => console.log(err));
-  arr.map(el => {
-    if (el.name === res) {
-      modalEl.classList.remove(hiddenClass);
-      modalWindowMarkup(el);
-    }
-    // onEscapeClick();
-  });
+  const res = event.target.closest('li').id;
+  console.dir(res);
+  try {
+    const obj = await axios.get(`/exercises/${res}`);
+    console.log(obj.data);
+    // modalEl.classList.add(hiddenClass);
+    modalWindowMarkup(obj.data);
+    modalBackdrop.classList.add(modalVisibility);
+    // renderRatingStars(ratingEl);
+  } catch {
+    err => console.log(err);
+  }
 }
 
-// modalEl.addEventListener('keydown', onEscapeClick);
+modalBackdrop.addEventListener('click', onBackDropClick);
+// closebtn.addEventListener('click', onCloseBtn);
+window.addEventListener('keydown', onWindowKeydown);
 
-// function onEscapeClick(event) {
-//   if (event.code !== 'Escape') {
-//     return;
-//   }
-//   modalEl.classList.add(hiddenClass);
-//   modalEl.removeEventListener('keydown', onEscapeClick);
+function onBackDropClick(event) {
+  if (event.currentTarget === event.target) {
+    onCloseBtn(event);
+  }
+}
+
+// function onCloseBtnClick() {
+//   modalBackdrop.classList.remove(modalVisibility);
 // }
+
+function onCloseBtn() {
+  window.removeEventListener('keydown', onWindowKeydown);
+  modalBackdrop.classList.remove(modalVisibility);
+}
+
+function onWindowKeydown(event) {
+  if (event.code === 'Escape') {
+    onCloseBtn(event);
+  }
+}
 
 function modalWindowMarkup(filters = {}) {
   const {
@@ -59,7 +75,7 @@ function modalWindowMarkup(filters = {}) {
                 height="10"
                 aria-label="Close icon"
               >
-                <use href="./svg/icons.svg#icon-close-btn"></use>
+                <use href="${icons}#icon-close-btn"></use>
               </svg>
             </button>
             <div class="exercise-image-wrapper">
@@ -73,6 +89,7 @@ function modalWindowMarkup(filters = {}) {
               <div class="exercise-name-container decorate-line">
                 <p class="exercise-name">${name}</p>
                 <p class="exercise-rating">${rating}</p>
+                <div class="rating-container"></div>
               </div>
               <div class="exercise-params-container decorate-line">
                 <ul class="exercise-params-list">
@@ -109,7 +126,7 @@ function modalWindowMarkup(filters = {}) {
                   class="exercise-fav-icon"
                   aria-label="Heart icon"
                   >
-                  <use href="./svg/icons.svg#icon-heart"></use>
+                  <use href="${icons}#icon-heart"></use>
                   </svg>
                 </button>
                 <button class="exercise-raiting-btn" type="submit" data="${_id}">
@@ -119,7 +136,5 @@ function modalWindowMarkup(filters = {}) {
             </div>
           </div>
         </div>`;
-  modalEl.innerHTML = markup;
+  modalBackdrop.innerHTML = markup;
 }
-
-// closebtn.addEventListener('click', )
