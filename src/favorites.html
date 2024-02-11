@@ -11,7 +11,7 @@
   <body class="body-favorites">
 
     <load ="partials/header.html" />
-    <load ="partials/quote.html" />
+  
 
 
 <!-- 
@@ -46,43 +46,47 @@
     <div class="query-content"></div>
 
 </div> -->
-<div class="second-third-together">
-  <picture>
-    <source
+<div class="qoute-and-img container">
+
+  <load ="partials/quote.html" />
+  <div class="second-third-together">
+    <picture>
+      <source
       media="(min-width: 768px)"
       srcset="./img/favorites/fav-girl-mob@2x.png"
       type="image/png"
-    />
-    <source
+      />
+      <source
       media="(max-width: 767px)"
       srcset="./img/favorites/fav-girl-mob@2x.png"
       type="image/png"
-    />
-    <img
+      />
+      <img
       class="second-favorites-photo"
       src="./img/favorites/fav-girl-mob.png"
       alt="girl"
       loading="lazy"
-    />
-  </picture>
-
-
-  <div class="third-favorites-block">
-    <div class="third-favorites-block-content">
-      <svg class="dumbel-icon" width="16" height="12">
-        <use href="./svg/icons.svg#icon-letter-H"></use>
-      </svg>
-      <span class="favorites-minutes">110 min</span>
-      <span class="daily-norm-favorites">Daily norm of sports</span>
+      />
+    </picture>
+    
+    
+    <div class="third-favorites-block">
+      <div class="third-favorites-block-content">
+        <svg class="dumbel-icon" width="16" height="12">
+          <use href="./svg/icons.svg#icon-letter-H"></use>
+        </svg>
+        <span class="favorites-minutes">110 min</span>
+        <span class="daily-norm-favorites">Daily norm of sports</span>
+      </div>
     </div>
   </div>
+<!-- </section> -->
 </div>
-</section>
 
 
 
 
-    <div class="container">
+<div class="container">
       <section class="favorite-sect-no-content">
         <ul class="gallery"></ul>
         <h1 class="title">Favorites</h1>
@@ -117,5 +121,6 @@
     </div>
     <script src="./favorites.js" type="module"></script>
     <script src="./js/header-hero.js" type="module"></script>
+    <script src="./js/quote.js"></script>
   </body>
 </html>
