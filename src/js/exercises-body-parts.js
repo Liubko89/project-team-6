@@ -9,6 +9,7 @@ const exercisesFilterSection = document.querySelector('.exercises-toolbar');
 const musclesButton = document.getElementById('muscles-button');
 const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
+const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
 
 let exercises, pageCount;
 let searchFilter;
@@ -28,16 +29,16 @@ const filterDict = {
 };
 const hiddenClass = 'is-hidden';
 
-function selectBtn() {
-  musclesButton.disabled = false;
-  musclesButton.classList.add('active-button');
+// function selectBtn() {
+//   musclesButton.disabled = false;
+//   musclesButton.classList.add('active-button');
 
-  const activeButton = document.querySelector('.exercises-button.active');
-  if (activeButton && activeButton !== musclesButton) {
-    activeButton.classList.remove('active-button');
-    activeButton.classList.add('inactive-button');
-  }
-}
+//   const activeButton = document.querySelector('.exercises-button.active');
+//   if (activeButton && activeButton !== musclesButton) {
+//     activeButton.classList.remove('active-button');
+//     activeButton.classList.add('inactive-button');
+//   }
+// }
 
 exGroupCardList.addEventListener('click', handleGroupSelection);
 hiddenContainer.classList.remove(hiddenClass);
@@ -58,11 +59,12 @@ async function handleGroupSelection(evt) {
   await getExercises(filterDict[filter], group).then(renderExerciseCards);
   hiddenContainer.classList.add(hiddenClass);
   exercisesFilterSection.classList.remove(hiddenClass);
+
   filterBtn.addEventListener('click', handleBackClick);
 
   function handleBackClick(evt) {
     console.log(evt.target);
-    if (currentTarget === evt.target) {
+    if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
     }
@@ -124,7 +126,7 @@ function renderExercisePagination(page) {
   const currentPageItem = paginationExercises.children[page - 1];
 
   currentPageItem.classList.add('active');
-  currentPageItem.firstElementChild.disabled = true;
+  // currentPageItem.firstElementChild.disabled = true;
 
   limitPagination(page);
 }

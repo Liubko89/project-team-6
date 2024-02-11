@@ -75,12 +75,15 @@
   padding-left: 16px;
 }
 
+.title-exercises{
+  display: flex;
+}
+
 .exercises-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  padding: 48px;
 }
 
 .searching-btn {
@@ -218,6 +221,7 @@ div.work-div {
 }
 
 @media screen and (min-width: 768px) {
+
   .form-search {
     margin-bottom: 0;
   }
@@ -231,7 +235,7 @@ div.work-div {
 
 @media screen and (min-width: 1440px) {
   .list-exercises {
-    max-width: 424px;
+    min-width: 424px;
   }
   .input-search {
     width: 273px;
