@@ -2,12 +2,14 @@ import axios from "axios";
 
 import {searchFilter, searchGroup, createExerciseCard, renderExerciseCards}  from'./exercises-body-parts'
 
-const hiddenContainer = document.querySelector('.fetch-container');
-const exercisesFilterSection = document.querySelector('.exercises-toolbar');
-const listExercisesEl = document.querySelector('.exercises-gallery');
-const formEl = document.querySelector('.form-search')
-const noResultsText = document.querySelector('.no-results')
-const cardsPerPage = innerWidth < 1440 ? 8 : 9;
+const hiddenContainer = document.querySelector('.fetch-container'); //ok
+const exercisesFilterSection = document.querySelector('.exercises-toolbar'); //ok
+const searchContainer = document.querySelector('.search-container');// ok
+const searchListEl = document.querySelector('.search-list'); //ok
+const formEl = document.querySelector('.form-search')  // ok
+const noResultsText = document.querySelector('.no-results') // ok
+const cardsPerPage = innerWidth < 1440 ? 8 : 9; // ok
+const hiddenClass = 'is-hidden';// ok
 
 let query;
 let currentArray;
@@ -54,10 +56,9 @@ function getSearchEquipment(group, query, page = 1, limit = 9) {
 
 
 async function onSubmit(event) {
-  event.preventDefault();
-  // noResultsText.classList.add('is-hidden')  
+   event.preventDefault();
   
-  query = event.currentTarget.elements['input-search'].value.trim();
+    query = event.currentTarget.elements['input-search'].value.trim();
        
     let data;
       
@@ -87,26 +88,30 @@ async function onSubmit(event) {
         // console.log(totalPages); 
         
       if (totalPages  === null) {
-         
-        listExercisesEl.innerHTML = '<li class="no-results"> Unfortunately, no results were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs. </li>';
-        // noResultsText.classList.remove('is-hidden')
-          } else {              
+        searchContainer.classList.remove(hiddenClass);
+        noResultsText.classList.remove(hiddenClass);
+        exercisesFilterSection.classList.add(hiddenClass);
+        searchListEl.classList.add(hiddenClass);
+        
         
 
+          } else {              
+        
             const {
              results: [{ bodyPart, target, name, burnedCalories, rating, time, _id }],
           } = data.data;
         // console.log(data);
-          
-          hiddenContainer.classList.add('is-hidden');
-         exercisesFilterSection.classList.remove('is-hidden');
+        searchContainer.classList.remove(hiddenClass);
+        searchListEl.classList.remove(hiddenClass);
+        noResultsText.classList.add(hiddenClass);    
+        exercisesFilterSection.classList.add(hiddenClass);
         
           
         currentArray = data.data.results;
         
           // console.log('TODO: малюэмо розмітку'); 
               
-        listExercisesEl.innerHTML = currentArray.map(createExerciseCard).join('');
+         searchListEl.innerHTML = currentArray.map(createExerciseCard).join('');
 
 
           }

@@ -90,6 +90,7 @@
   align-items: baseline;
 }
 
+.search-list,
 .exercises-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -257,7 +258,7 @@ div.work-div {
   }
 }
 
-.seach__wrap{
+.seach__wrap {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
