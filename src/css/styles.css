@@ -48,3 +48,23 @@ body {
     max-width: 1440px;
   }
 }
+
+/* styles for Scroll Top BTN */
+
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: rgba(126, 132, 127, 1);
+  color: rgba(246, 246, 246, 1);
+  cursor: pointer;
+  padding: 40px;
+  border-radius: 100%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
