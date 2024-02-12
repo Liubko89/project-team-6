@@ -1,14 +1,14 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
-
 import 'izitoast/dist/css/iziToast.min.css';
-
 document
   .getElementById('footerForm')
   .addEventListener('submit', function (event) {
     event.preventDefault();
 
     const email = document.getElementById('emailInput').value;
+
+    console.log(email);
 
     if (!isValidEmail(email)) {
       iziToast.error({

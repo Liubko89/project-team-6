@@ -102,12 +102,13 @@ function createExerciseCard({
             <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="./svg/icons.svg#icon-running-man"></use></svg></div>
             <h4 class="ex-name">${name}</h4>
             </div>
-           
-            <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
-            <div class="info-ex">
-            <p class="options-item"><span class="hid-txt">Body part:</span>${bodyPart}</p>
-            <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
+            <div class="options-item-wrap">
+              <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
+              <p class="options-item"><span class="hid-txt">Body part:</span>${bodyPart}</p>
+              <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
             </div>
+           
+            
             </li>`;
 }
 
