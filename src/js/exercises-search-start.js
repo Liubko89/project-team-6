@@ -2,22 +2,17 @@ import axios from "axios";
 
 import {searchFilter, searchGroup, createExerciseCard, renderExerciseCards}  from'./exercises-body-parts'
 
-
-
-// document.getElementById('submitIcon').addEventListener('click', function() {
-//   formEl.submit();
-// });
-
-
+const hiddenContainer = document.querySelector('.fetch-container');
+const exercisesFilterSection = document.querySelector('.exercises-toolbar');
+const listExercisesEl = document.querySelector('.exercises-gallery');
 const formEl = document.querySelector('.form-search')
+const noResultsText = document.querySelector('.no-results')
+const cardsPerPage = innerWidth < 1440 ? 8 : 9;
+
+let query;
+let currentArray;
+
 formEl.addEventListener('submit', onSubmit);
-
-
-// getFilter(filter).then(console.log);
-
-// https://energyflow.b.goit.study/api/exercises?muscles=abs&keyword=ball&page=1&limit=10
-// https://energyflow.b.goit.study/api/exercises?bodypart=cardio&muscles=abs&equipment=band&keyword=side&page=1&limit=10  -  приклади запитів
-
 
 // bodypart запит
 function getSearchBodypart(group, query, page = 1, limit = 9) {
@@ -55,34 +50,17 @@ function getSearchEquipment(group, query, page = 1, limit = 9) {
   });
 }
 
+// ******
 
-
-
-// ***необхідні параметри для корректного виклику функції (потрібна логіка їх визначення)
-// let bodypart = "";
-// let muscles = "delts";
-// let equipment = "";
-let query;
-// let group = "delts"
-
-// getSearch(group, query).then(console.log);
-
-// при використанні функцій використовувати async..wait  з try catch  або просто .then.catch
-
-
-// ***************
 
 async function onSubmit(event) {
-    event.preventDefault();
-    
+  event.preventDefault();
+  // noResultsText.classList.add('is-hidden')  
+  
   query = event.currentTarget.elements['input-search'].value.trim();
-    console.log(query);
-    console.log(searchFilter);
-    console.log(searchGroup);
-     
-    let data;
        
-
+    let data;
+      
     try {
           if (searchFilter === 'Body parts') {
             
@@ -97,45 +75,114 @@ async function onSubmit(event) {
               data = await getSearchEquipment(searchGroup, query)
         
             }         
-          
-
+        
         const {
             totalPages,
             perPage,
-            results: [{ bodyPart, target, name, burnedCalories, rating, time, _id }],
-        } = data.data;
+            results,            
+          } = data.data;
+      
+      // const array = data.data.results
+        // console.log(data); 
+        // console.log(totalPages); 
         
-        console.log(data); 
-                
-        console.log(bodyPart, target, name, burnedCalories, rating, time, _id); 
+      if (totalPages  === null) {
+         
+        listExercisesEl.innerHTML = '<li class="no-results"> Unfortunately, no results were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs. </li>';
+        // noResultsText.classList.remove('is-hidden')
+          } else {              
         
-          if (data.data.results.length === 0) {
+
+            const {
+             results: [{ bodyPart, target, name, burnedCalories, rating, time, _id }],
+          } = data.data;
+        // console.log(data);
           
-          console.log('TODO: Unfortunately, no results were found. You may want to consider other search options to find the exercise you are looking for. Our range is wide and you have the opportunity to find more options that suit your needs.');
-          } else {
+          hiddenContainer.classList.add('is-hidden');
+         exercisesFilterSection.classList.remove('is-hidden');
+        
+          
+        currentArray = data.data.results;
+        
+          // console.log('TODO: малюэмо розмітку'); 
               
-              
-            console.log('TODO: малюэмо розмітку'); 
-            createExerciseCard({
-                bodyPart,
-                target,
-                name,
-                burnedCalories,
-                rating,
-                time,
-                _id,
-                }) 
-              
-              renderExerciseCards();
+        listExercisesEl.innerHTML = currentArray.map(createExerciseCard).join('');
+
 
           }
           
   } catch (error) {
     console.log(error);
   } finally {
-
+    // console.log('блок finally');
+    formEl.reset();
   }
 }
+//********пагінація *****/
 
+// function renderExercisePagination(page) {
+//   pageCount = Math.ceil(exercises.length / cardsPerPage);
 
-// export {getQuotes, getFilter, getSearch}
+//   if (exercises.length <= cardsPerPage) {
+//     paginationExercises.innerHTML = '';
+//     return;
+//   }
+
+//   paginationExercises.innerHTML = Array(pageCount)
+//     .fill(1)
+//     .map((n, i) => n + i)
+//     .map(
+//       i =>
+//         `<li class="page-exercises" data-page="${i}"><button id="prevPage">${i}</button></li>`
+//     )
+//     .join('');
+
+//   const currentPageItem = paginationExercises.children[page - 1];
+
+//   currentPageItem.classList.add('active');
+//   // currentPageItem.firstElementChild.disabled = true;
+
+//   limitPagination(page);
+// }
+
+// function limitPagination(currentPage) {
+//   for (const pageItem of [...paginationExercises.children]) {
+//     const page = +pageItem.dataset.page;
+
+//     if (
+//       page !== 1 &&
+//       page !== pageCount &&
+//       (page < currentPage - 3 || page > currentPage + 3)
+//     ) {
+//       pageItem.remove();
+//     }
+//   }
+//   const secondPage = paginationExercises.children[1]?.dataset.page;
+//   const secondToLastPage =
+//     paginationExercises.lastElementChild.previousElementSibling?.dataset.page;
+//   if (secondPage > 2) {
+//     paginationExercises.firstElementChild.after('...');
+//   }
+//   if (secondToLastPage < pageCount - 1) {
+//     paginationExercises.lastElementChild.before('...');
+//   }
+// }
+
+// function renderExerciseCards(page = 1) {
+//   const i = (page - 1) * cardsPerPage;
+
+//   const pageExercises = exercises.slice(i, i + cardsPerPage);
+
+//   listExercisesEl.innerHTML = pageExercises.map(createExerciseCard).join('');
+
+//   renderExercisePagination(page);
+// }
+
+// function handleSwitchPageExercises(evt) {
+//   const page = +evt.target.closest('.page-exercises')?.dataset.page;
+
+//   if (!page) return;
+
+//   renderExerciseCards(page);
+// }
+// export {getQuotes, getFilter, getSearch} додати cardsPerPage, renderExercisePagination, 
