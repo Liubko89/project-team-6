@@ -31,16 +31,15 @@ form.addEventListener('submit', function (event) {
       }
     )
     .then(function (response) {
-      console.log(response.data);
       iziToast.success({
-        title: 'Success',
         message: response.data.message,
-        position: 'topRight',
+        position: 'topCenter',
+        messageColor: '#fff',
+        backgroundColor: '#1b1b1b',
       });
       document.getElementById('emailInput').value = '';
     })
     .catch(function (error) {
-      console.error('Error:', error);
       iziToast.error({
         title: 'Error',
         message: 'Failed to create subscription',
