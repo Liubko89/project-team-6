@@ -15,9 +15,9 @@
     
     <script type="module" crossorigin src="/project-team-6/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-team-6/assets/vendor-db25513e.js">
-    <link rel="modulepreload" crossorigin href="/project-team-6/assets/quote-29c201ef.js">
+    <link rel="modulepreload" crossorigin href="/project-team-6/assets/quote-4faf83fe.js">
     <link rel="stylesheet" href="/project-team-6/assets/vendor-e5212ee8.css">
-    <link rel="stylesheet" href="/project-team-6/assets/quote-48719f8a.css">
+    <link rel="stylesheet" href="/project-team-6/assets/quote-3be2e5a9.css">
   </head>
   <body>
     <header class="header">
@@ -209,39 +209,43 @@
     <div class="title-exercises">
       <h2 class="exercises">Exercises</h2>
       <span class="span-exercises is-hidden"> / </span>
-      <h3 class="exercise-group is-hidden"></h3>
+      <div class="group-title-wrap">
+        <h3 class="exercise-group"></h3>
+      </div>
     </div>
-    <div class="exercises-search">
-      <ul class="exercises-nav-list">
-        <li class="exercises-nav-item">
-          <button
-            class="exercises-button active"
-            id="muscles-button"
-            data-filter="Muscles"
-          >
-            Muscles
-          </button>
-        </li>
-        <li class="exercises-nav-item">
-          <button
-            class="exercises-button"
-            id="body-parts-button"
-            data-filter="Body parts"
-          >
-            Body parts
-          </button>
-        </li>
-        <li class="exercises-nav-item">
-          <button
-            class="exercises-button"
-            id="equipment-button"
-            data-filter="Equipment"
-          >
-            Equipment
-          </button>
-        </li>
-      </ul>
-      <form class="form-search">
+    <div class="seach__wrap">
+      <div class="exercises-search">
+        <ul class="exercises-nav-list">
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button active"
+              id="muscles-button"
+              data-filter="Muscles"
+            >
+              Muscles
+            </button>
+          </li>
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button"
+              id="body-parts-button"
+              data-filter="Body parts"
+            >
+              Body parts
+            </button>
+          </li>
+          <li class="exercises-nav-item">
+            <button
+              class="exercises-button"
+              id="equipment-button"
+              data-filter="Equipment"
+            >
+              Equipment
+            </button>
+          </li>
+        </ul>
+      </div>
+      <form class="form-search is-hidden">
         <label name="input-search">
           <input
             class="input-search"
