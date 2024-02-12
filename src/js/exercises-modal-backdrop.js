@@ -3,7 +3,6 @@ import icons from '../svg/icons.svg';
 
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const startBtn = document.querySelector('.exercises-gallery');
-const closebtn = document.querySelector('.exercise-close-btn');
 
 const modalVisibility = 'is-open';
 
@@ -14,22 +13,28 @@ async function handleClick(event) {
     return;
   }
   const res = event.target.closest('li').id;
-  console.dir(res);
   try {
     const obj = await axios.get(`/exercises/${res}`);
-    console.log(obj.data);
-    // modalEl.classList.add(hiddenClass);
     modalWindowMarkup(obj.data);
     modalBackdrop.classList.add(modalVisibility);
-    // renderRatingStars(ratingEl);
+    
+    const stars = document.querySelectorAll('.stars-wrap-svg');
+    const starsRating = Math.round(obj.data.rating);
+    getStars(stars, starsRating);
   } catch {
     err => console.log(err);
   }
+  const closebtn = document.getElementById('modal-close-btn');
+  closebtn.addEventListener('click', () => {
+    modalBackdrop.classList.remove(modalVisibility);
+  });
+  window.addEventListener('keydown', event => {
+    if (event.code === 'Escape') {
+      onCloseBtn(event);
+    }
+  });
 }
-
 modalBackdrop.addEventListener('click', onBackDropClick);
-// closebtn.addEventListener('click', onCloseBtn);
-window.addEventListener('keydown', onWindowKeydown);
 
 function onBackDropClick(event) {
   if (event.currentTarget === event.target) {
@@ -37,21 +42,15 @@ function onBackDropClick(event) {
   }
 }
 
-// function onCloseBtnClick() {
-//   modalBackdrop.classList.remove(modalVisibility);
-// }
-
 function onCloseBtn() {
   window.removeEventListener('keydown', onWindowKeydown);
   modalBackdrop.classList.remove(modalVisibility);
 }
-
 function onWindowKeydown(event) {
   if (event.code === 'Escape') {
     onCloseBtn(event);
   }
 }
-
 function modalWindowMarkup(filters = {}) {
   const {
     _id,
@@ -68,7 +67,7 @@ function modalWindowMarkup(filters = {}) {
   } = filters;
   const markup = `<div class="exercises-modal-window">
           <div class="exercise-container">
-            <button class="exercise-close-btn" type="button">
+            <button class="exercise-close-btn" id="modal-close-btn" type="button">
               <svg
                 class="exercise-close-icon"
                 width="10"
@@ -88,8 +87,26 @@ function modalWindowMarkup(filters = {}) {
             <div class="exercise-info-wrapper">
               <div class="exercise-name-container decorate-line">
                 <p class="exercise-name">${name}</p>
+                <div class="rating-container">
                 <p class="exercise-rating">${rating}</p>
-                <div class="rating-container"></div>
+                <div class="stars-wrap">
+                  <svg class="stars-wrap-svg" width="18" height="18">
+        <use href="./svg/icons.svg#icon-star"></use>
+      </svg>
+      <svg class="stars-wrap-svg" width="18" height="18">
+        <use href="./svg/icons.svg#icon-star"></use>
+      </svg>
+      <svg class="stars-wrap-svg" width="18" height="18">
+        <use href="./svg/icons.svg#icon-star"></use>
+      </svg>
+      <svg class="stars-wrap-svg" width="18" height="18">
+        <use href="./svg/icons.svg#icon-star"></use>
+      </svg>
+      <svg class="stars-wrap-svg" width="18" height="18">
+        <use href="./svg/icons.svg#icon-star"></use>
+      </svg>
+    </div>
+                </div>
               </div>
               <div class="exercise-params-container decorate-line">
                 <ul class="exercise-params-list">
@@ -136,5 +153,12 @@ function modalWindowMarkup(filters = {}) {
             </div>
           </div>
         </div>`;
+  
   modalBackdrop.innerHTML = markup;
+}
+
+function getStars(arr, rate) {
+  arr.forEach((el, id) => {
+    id < rate ? el.classList.add('yellow') : null;
+  });
 }
