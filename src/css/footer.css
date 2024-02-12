@@ -26,10 +26,11 @@
 .footer-ul {
   display: flex;
   gap: 12px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .footer-h2 {
+  width: 100%;
   color: #f6f6f6;
   font-size: 32px;
   font-weight: 400;
@@ -65,7 +66,7 @@
 }
 
 #emailInput {
-  width: 295px;
+  width: 100%;
   background-color: transparent;
   border: 1px solid rgb(246, 246, 246);
   border-radius: 30px;
@@ -80,7 +81,7 @@
 }
 
 #submitButton {
-  width: 295px;
+  width: 100%;
   border-radius: 30px;
   background: rgb(126, 132, 127);
   padding: 12px 0;
@@ -110,7 +111,13 @@
   padding: 0 5px;
 }
 
-@media screen and (max-width: 767.98px) and (min-resolution: 192dpi) {
+@media screen and (min-width: 370px) {
+  .footer-ul {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-resolution: 192dpi) {
   .footer-div {
     background-image: linear-gradient(
         rgba(27, 27, 27, 0.7),
@@ -120,7 +127,7 @@
   }
 }
 
-@media screen and (min-width: 736px) and (max-width: 1438px) {
+@media screen and (min-width: 768px) and (max-width: 1438px) {
   .footer-div {
     background-image: linear-gradient(
         to bottom,
@@ -258,6 +265,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: 0;
   }
 
   #emailInput {
@@ -266,6 +274,10 @@
 
   #submitButton {
     width: 346px;
+  }
+
+  .Privacy-Policy {
+    padding-left: 30px;
   }
 }
 
