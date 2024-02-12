@@ -110,12 +110,6 @@
   padding: 0 5px;
 }
 
-@media screen and (min-width: 370px) {
-  .footer-ul {
-    margin-bottom: 40px;
-  }
-}
-
 @media screen and (max-width: 768px) and (min-resolution: 192dpi) {
   .footer-div {
     background-image: linear-gradient(
