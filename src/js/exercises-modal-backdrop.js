@@ -17,7 +17,7 @@ async function handleClick(event) {
     const obj = await axios.get(`/exercises/${res}`);
     modalWindowMarkup(obj.data);
     modalBackdrop.classList.add(modalVisibility);
-    
+
     const stars = document.querySelectorAll('.stars-wrap-svg');
     const starsRating = Math.round(obj.data.rating);
     getStars(stars, starsRating);
@@ -91,21 +91,21 @@ function modalWindowMarkup(filters = {}) {
                 <p class="exercise-rating">${rating}</p>
                 <div class="stars-wrap">
                   <svg class="stars-wrap-svg" width="18" height="18">
-        <use href="./svg/icons.svg#icon-star"></use>
-      </svg>
-      <svg class="stars-wrap-svg" width="18" height="18">
-        <use href="./svg/icons.svg#icon-star"></use>
-      </svg>
-      <svg class="stars-wrap-svg" width="18" height="18">
-        <use href="./svg/icons.svg#icon-star"></use>
-      </svg>
-      <svg class="stars-wrap-svg" width="18" height="18">
-        <use href="./svg/icons.svg#icon-star"></use>
-      </svg>
-      <svg class="stars-wrap-svg" width="18" height="18">
-        <use href="./svg/icons.svg#icon-star"></use>
-      </svg>
-    </div>
+                    <use href="${icons}#icon-star"></use>
+                  </svg>
+                  <svg class="stars-wrap-svg" width="18" height="18">
+                    <use href="${icons}#icon-star"></use>
+                  </svg>
+                  <svg class="stars-wrap-svg" width="18" height="18">
+                    <use href="${icons}#icon-star"></use>
+                  </svg>
+                  <svg class="stars-wrap-svg" width="18" height="18">
+                    <use href="${icons}#icon-star"></use>
+                  </svg>
+                  <svg class="stars-wrap-svg" width="18" height="18">
+                    <use href="${icons}#icon-star"></use>
+                  </svg>
+               </div>
                 </div>
               </div>
               <div class="exercise-params-container decorate-line">
@@ -153,7 +153,7 @@ function modalWindowMarkup(filters = {}) {
             </div>
           </div>
         </div>`;
-  
+
   modalBackdrop.innerHTML = markup;
 }
 
