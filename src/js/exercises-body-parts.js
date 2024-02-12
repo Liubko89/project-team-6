@@ -1,15 +1,18 @@
 const containerMuscles = document.querySelector('.exercises-nav-list');
 const hiddenContainer = document.querySelector('.fetch-container');
 const exGroupCardList = document.querySelector('.exercises-container');
-// const imageEl = document.querySelector('.exercise-card');
+const imageEl = document.querySelector('.exercise-card');
 const listExercisesEl = document.querySelector('.exercises-gallery');
-// const breadcrumb = document.querySelector('.header-box');
-// const filterBtn = document.querySelector('.exercises-search');
+const breadcrumb = document.querySelector('.header-box');
+const filterBtn = document.querySelector('.exercises-search');
 const exercisesFilterSection = document.querySelector('.exercises-toolbar');
-// const musclesButton = document.getElementById('muscles-button');
+const musclesButton = document.getElementById('muscles-button');
 const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
-// const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
+const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
+const formSeach = document.querySelector('.form-search');
+const spanEx = document.querySelector('.span-exercises ');
+const exerciseGroup = document.querySelector('.exercise-group');
 
 let exercises, pageCount;
 let searchFilter;
@@ -60,13 +63,20 @@ async function handleGroupSelection(evt) {
   hiddenContainer.classList.add(hiddenClass);
   exercisesFilterSection.classList.remove(hiddenClass);
 
-  containerMuscles.addEventListener('click', handleBackClick);
+  filterBtn.addEventListener('click', handleBackClick);
+  formSeach.classList.remove(hiddenClass);
+  spanEx.classList.remove(hiddenClass);
+  // exerciseGroup.remove(hiddenClass);
 
   function handleBackClick(evt) {
     console.log(evt.target);
-    if (evt.currentTarget === containerMuscles) {
+    if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
+      formSeach.classList.add(hiddenClass);
+      spanEx.classList.add(hiddenClass);
+      // exerciseGroup.add(hiddenClass);
+      exerciseGroup.textContent = "";
     }
   }
 }
@@ -102,22 +112,18 @@ function createExerciseCard({
             <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="./svg/icons.svg#icon-running-man"></use></svg></div>
             <h4 class="ex-name">${name}</h4>
             </div>
-           
-            <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
-            <div class="info-ex">
-            <p class="options-item"><span class="hid-txt">Body part:</span>${bodyPart}</p>
-            <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
+            <div class="options-item-wrap">
+              <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
+              <p class="options-item"><span class="hid-txt">Body part:</span>${bodyPart}</p>
+              <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
             </div>
+           
+            
             </li>`;
 }
 
 function renderExercisePagination(page) {
   pageCount = Math.ceil(exercises.length / cardsPerPage);
-
-  if (exercises.length <= cardsPerPage) {
-    paginationExercises.innerHTML = '';
-    return;
-  }
 
   paginationExercises.innerHTML = Array(pageCount)
     .fill(1)
