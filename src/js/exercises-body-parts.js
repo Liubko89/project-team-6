@@ -10,6 +10,9 @@ const musclesButton = document.getElementById('muscles-button');
 const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
 const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
+const formSeach = document.querySelector('.form-search');
+const spanEx = document.querySelector('.span-exercises ');
+const exerciseGroup = document.querySelector('.exercise-group');
 
 let exercises, pageCount;
 let searchFilter;
@@ -61,12 +64,19 @@ async function handleGroupSelection(evt) {
   exercisesFilterSection.classList.remove(hiddenClass);
 
   filterBtn.addEventListener('click', handleBackClick);
+  formSeach.classList.remove(hiddenClass);
+  spanEx.classList.remove(hiddenClass);
+  // exerciseGroup.remove(hiddenClass);
 
   function handleBackClick(evt) {
     console.log(evt.target);
     if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
+      formSeach.classList.add(hiddenClass);
+      spanEx.classList.add(hiddenClass);
+      // exerciseGroup.add(hiddenClass);
+      exerciseGroup.textContent = "";
     }
   }
 }

@@ -87,6 +87,7 @@
 
 .title-exercises {
   display: flex;
+  align-items: baseline;
 }
 
 .exercises-gallery {
@@ -256,6 +257,13 @@ div.work-div {
   }
 }
 
+.seach__wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+}
+
 @media screen and (min-width: 1440px) {
   .list-exercises {
     min-width: 424px;
@@ -263,5 +271,8 @@ div.work-div {
   .input-search {
     width: 273px;
     height: 48px;
+  }
+  .options-item-span {
+    width: 24px;
   }
 }
