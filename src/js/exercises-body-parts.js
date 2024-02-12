@@ -114,6 +114,11 @@ function createExerciseCard({
 function renderExercisePagination(page) {
   pageCount = Math.ceil(exercises.length / cardsPerPage);
 
+  if (exercises.length <= cardsPerPage) {
+    paginationExercises.innerHTML = '';
+    return;
+  }
+
   paginationExercises.innerHTML = Array(pageCount)
     .fill(1)
     .map((n, i) => n + i)
