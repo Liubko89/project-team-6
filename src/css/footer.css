@@ -110,7 +110,7 @@
   padding: 0 5px;
 }
 
-@media screen and (max-width: 767.98px) and (min-resolution: 192dpi) {
+@media screen and (max-width: 768px) and (min-resolution: 192dpi) {
   .footer-div {
     background-image: linear-gradient(
         rgba(27, 27, 27, 0.7),
@@ -120,7 +120,7 @@
   }
 }
 
-@media screen and (min-width: 736px) and (max-width: 1438px) {
+@media screen and (min-width: 768px) and (max-width: 1438px) {
   .footer-div {
     background-image: linear-gradient(
         to bottom,
