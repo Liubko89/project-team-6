@@ -4,14 +4,12 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.getElementById('footerForm');
 
-console.log(form);
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const email = document.getElementById('emailInput').value;
 
-  console.log(email);
 
   if (!isValidEmail(email)) {
     iziToast.error({
@@ -36,7 +34,7 @@ form.addEventListener('submit', function (event) {
       console.log(response.data);
       iziToast.success({
         title: 'Success',
-        message: 'Subscription created successfully!',
+        message: response.data.message,
         position: 'topRight',
       });
       document.getElementById('emailInput').value = '';
