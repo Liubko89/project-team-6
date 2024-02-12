@@ -76,8 +76,10 @@ z-index: 999;
 }
 
 .exercise-rating {
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 14px;
   line-height: 1.5;
+  margin-right: 6px;
 }
 
 /* .exercise-rating::after {
@@ -181,6 +183,19 @@ z-index: 999;
 .exercise-raiting-btn:hover,
 .exercise-raiting-btn:focus {
   border: 1px solid var(--grey);
+}
+
+.rating-container {
+  display: flex;
+}
+
+.stars-wrap-svg {
+  fill: var(--stars);
+  margin-right: 2px;
+}
+
+.yellow {
+  fill: var(--stars-hover);
 }
 
 @media screen and (min-width: 768px) {
