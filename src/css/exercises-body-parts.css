@@ -48,6 +48,10 @@
   padding-left: 8px;
 }
 
+.exercises-search {
+  padding-bottom: 20px;
+}
+
 .exercises-toolbar {
   padding-bottom: 40px;
 }
@@ -245,7 +249,24 @@ div.work-div {
   inset: 6px;
 }
 
+.seach__wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-search {
+  width: 100%;
+}
 @media screen and (min-width: 768px) {
+  seach__wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-search {
+    width: 246px;
+  }
+  /* 
   .form-search {
     margin-bottom: 0;
   }
@@ -257,15 +278,24 @@ div.work-div {
   }
 }
 
+.exercises-search {
+  padding-bottom: 20px;
+}
+
 .seach__wrap{
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  gap: 12px;
+  
+
+}
+
+.container-muscles-inner{
+  width: 100%; */
 }
 
 @media screen and (min-width: 1440px) {
-  .list-exercises {
+  /* .list-exercises {
     min-width: 424px;
   }
   .input-search {
@@ -274,5 +304,5 @@ div.work-div {
   }
   .options-item-span {
     width: 24px;
-  }
+  } */
 }
