@@ -123,7 +123,7 @@ import{i as c}from"./assets/quote-dee398cd.js";import{a as m,i as I}from"./asset
                   <use href="${c}#icon-heart"></use>
                   </svg>
                 </button>
-                <button class="exercise-raiting-btn" type="submit" data="${t}">
+                <button class="exercise-raiting-btn is-hidden" type="submit" data="${t}">
                   Give a rating
                 </button>
               </div>
