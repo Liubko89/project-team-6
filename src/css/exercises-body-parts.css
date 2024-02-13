@@ -259,13 +259,6 @@ div.work-div {
   }
 }
 
-.seach__wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 12px;
-}
-
 @media screen and (min-width: 1440px) {
   .list-exercises {
     min-width: 424px;
