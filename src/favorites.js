@@ -1,4 +1,4 @@
-import icons from '../svg/icons.svg';
+import icons from '/svg/icons.svg';
 const home = document.getElementById('home');
 const favorites = document.getElementById('favorites');
 const back = document.querySelector('.back-image');
