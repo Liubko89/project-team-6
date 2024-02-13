@@ -13,6 +13,10 @@
 @import url('./pagination.css');
 @import url('./favorites.css');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'DM Sans';
   color: var(--black);
