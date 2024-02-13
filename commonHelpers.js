@@ -1,4 +1,4 @@
-import{i as t}from"./assets/quote-e3654afc.js";import"./assets/vendor-db25513e.js";const o=document.getElementById("home"),i=document.getElementById("favorites"),p=document.querySelector(".back-image"),u=document.querySelector(".quote"),s=document.querySelectorAll(".mob-nav-link"),m=document.querySelector(".content-no-favorites"),h=document.querySelector(".gallery");function g(){o.classList.remove("is-active"),o.classList.add("no-active"),i.classList.remove("no-active"),i.classList.add("is-active"),u.classList.remove("container"),s[0].classList.remove("is-active"),s[0].classList.add("no-active"),s[1].classList.remove("no-active"),s[1].classList.add("is-active"),p.style.display="none"}g();const a=JSON.parse(localStorage.getItem("favorites"));console.log(a);function y(n){return m.style.display="none",n.map(({bodyPart:c,name:e,_id:l,target:r,burnedCalories:d,time:v})=>`<li class = "list-exercises" id="${l}" data-filter="${e}"><div class="options">
+import{i as t}from"./assets/quote-dee398cd.js";import"./assets/vendor-db25513e.js";const i=document.getElementById("home"),o=document.getElementById("favorites"),v=document.querySelector(".back-image"),p=document.querySelector(".quote"),s=document.querySelectorAll(".mob-nav-link"),u=document.querySelector(".content-no-favorites"),m=document.querySelector(".gallery");function h(){i.classList.remove("is-active"),i.classList.add("no-active"),o.classList.remove("no-active"),o.classList.add("is-active"),p.classList.remove("container"),s[0].classList.remove("is-active"),s[0].classList.add("no-active"),s[1].classList.remove("no-active"),s[1].classList.add("is-active"),v.style.display="none"}h();const g=JSON.parse(localStorage.getItem("favorites"));function y(a){return u.style.display="none",a.map(({bodyPart:n,name:e,_id:c,target:r,burnedCalories:l,time:d})=>`<li class = "list-exercises" id="${c}" data-filter="${e}"><div class="options">
     <div class="box-up">
     <div class="box-left">
     <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
@@ -18,9 +18,9 @@ import{i as t}from"./assets/quote-e3654afc.js";import"./assets/vendor-db25513e.j
               <h4 class="ex-name">${e}</h4>
               </div>
               <div class="options-item-wrap">
-                <p class="options-item"><span class="hid-txt">Burned calories:</span>${d}/${v}</p>
-                <p class="options-item"><span class="hid-txt">Body part:</span>${c}</p>
+                <p class="options-item"><span class="hid-txt">Burned calories:</span>${l}/${d}</p>
+                <p class="options-item"><span class="hid-txt">Body part:</span>${n}</p>
                 <p class="options-item"><span class="hid-txt">Target:</span>${r}</p></div>
               </div>
-             </li>`).join("")}h.innerHTML=y(a);
+             </li>`).join("")}m.innerHTML=y(g);
 //# sourceMappingURL=commonHelpers.js.map
