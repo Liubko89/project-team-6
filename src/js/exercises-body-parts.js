@@ -177,6 +177,11 @@ function renderExerciseCards(page = 1) {
   listExercisesEl.innerHTML = pageExercises.map(createExerciseCard).join('');
 
   renderExercisePagination(page);
+
+  if (exercises.length <= cardsPerPage) {
+    paginationExercises.innerHTML = '';
+    return;
+  }
 }
 // function renderExerciseContainer({ results }) {
 //   renderExerciseCards(results);
