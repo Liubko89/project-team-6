@@ -33,6 +33,11 @@ body {
   pointer-events: none;
   width: 0;
   height: 0;
+  display: none;
+}
+
+.on-backdrop-scroll {
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
