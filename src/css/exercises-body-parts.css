@@ -48,9 +48,9 @@
   padding-left: 8px;
 }
 
-.exercises-toolbar {
+/* .exercises-toolbar {
   padding-bottom: 40px;
-}
+} */
 .form-search {
   position: relative;
   margin-bottom: 40px;
@@ -153,6 +153,9 @@ div.work-div {
   background-color: #fff;
   font-size: 14px;
   font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .icon-arrow {
   fill: transparent;
@@ -261,9 +264,10 @@ div.work-div {
 
 .seach__wrap {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: stretch;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1440px) {
@@ -277,10 +281,4 @@ div.work-div {
   .options-item-span {
     width: 24px;
   }
-}
-
-.btn-start-arrow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
