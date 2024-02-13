@@ -155,6 +155,54 @@ function modalWindowMarkup(filters = {}) {
         </div>`;
   
   modalBackdrop.innerHTML = markup;
+
+  // if(isIdExists){
+  //   changeCaption(RemoveBtn, btnFavorite)
+  // }
+
+  const KEY_FV = 'favorites';
+  let favorites = JSON.parse(localStorage.getItem(KEY_FV)) || [];
+  const startBtn = document.querySelector('.btn-start-arrow')
+  const btnFavorite = document.querySelector('.exercise-favorite-btn');
+  const RemoveBtn = 'Remove from'
+  const AddTo = 'Add to favorites'
+  
+  btnFavorite.addEventListener('click', addFn);
+  
+  function addFn() {
+      const newFavorite = { bodyPart, name, _id, target, burnedCalories, time };
+      const isIdExists = favorites.some(favorite => favorite._id === newFavorite._id);
+
+      if(isIdExists){
+        changeCaption(AddTo, btnFavorite)
+        favorites.find(( element, index) => {
+          if(element._id == _id){
+            favorites.splice(index, 1)
+            console.log(favorites)
+            localStorage.setItem(KEY_FV, JSON.stringify(favorites));
+          } else {
+            return;
+          }
+        })
+        return;
+      } else {
+        changeCaption(RemoveBtn, btnFavorite)
+      }
+      favorites.push(newFavorite);
+      localStorage.setItem(KEY_FV, JSON.stringify(favorites));
+
+  }
+
+  function changeCaption(str, btn) {
+    const textNode = btn.childNodes[0];
+    textNode.nodeValue = str;
+  }
+
+  function Remove(id, arr){
+    arr.find(index => isIdExists)
+      
+  }
+  
 }
 
 function getStars(arr, rate) {
