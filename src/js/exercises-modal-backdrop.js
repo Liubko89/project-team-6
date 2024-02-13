@@ -3,6 +3,7 @@ import icons from '../svg/icons.svg';
 
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const startBtn = document.querySelector('.exercises-gallery');
+const bodyOnScroll = document.querySelector('body');
 
 const modalVisibility = 'is-open';
 
@@ -15,6 +16,7 @@ async function handleClick(event) {
   const res = event.target.closest('li').id;
 
   try {
+    bodyOnScroll.classList.add('on-scroll');
     const obj = await axios.get(`/exercises/${res}`);
     modalWindowMarkup(obj.data);
     modalBackdrop.classList.add(modalVisibility);
@@ -54,6 +56,7 @@ async function handleClick(event) {
   const closebtn = document.getElementById('modal-close-btn');
   closebtn.addEventListener('click', () => {
     modalBackdrop.classList.remove(modalVisibility);
+    bodyOnScroll.classList.remove('on-scroll');
   });
   window.addEventListener('keydown', event => {
     if (event.code === 'Escape') {
@@ -72,6 +75,7 @@ function onBackDropClick(event) {
 function onCloseBtn() {
   window.removeEventListener('keydown', onWindowKeydown);
   modalBackdrop.classList.remove(modalVisibility);
+  bodyOnScroll.classList.remove('on-scroll');
 }
 function onWindowKeydown(event) {
   if (event.code === 'Escape') {
@@ -199,14 +203,12 @@ function modalWindowMarkup(filters = {}) {
     // const newFavorite = { bodyPart, name, _id, target, burnedCalories, time };
 
     const isIdExists = favorites.some(favorite => favorite._id === _id);
-    console.log(_id);
 
     if (isIdExists) {
       changeCaption(AddTo, btnFavorite);
       favorites.find((element, index) => {
         if (element._id === _id) {
           favorites.splice(index, 1);
-          console.log(favorites);
           localStorage.setItem(KEY_FV, JSON.stringify(favorites));
         } else {
           return;

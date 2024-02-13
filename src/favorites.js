@@ -25,7 +25,6 @@ function onClickChange() {
 onClickChange();
 
 const render = JSON.parse(localStorage.getItem('favorites'));
-console.log(render);
 
 function renderContent(arr) {
   to_delete.style.display = 'none';

@@ -40,6 +40,10 @@ body {
   display: none;
 }
 
+.on-scroll {
+  overflow: hidden;
+}
+
 .on-backdrop-scroll {
   overflow: hidden;
 }
