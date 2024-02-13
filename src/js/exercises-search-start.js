@@ -8,6 +8,8 @@ const searchContainer = document.querySelector('.search-container');// ok
 const searchListEl = document.querySelector('.search-list'); //ok
 const formEl = document.querySelector('.form-search')  // ok
 const noResultsText = document.querySelector('.no-results') // ok
+const searchPagination = document.querySelector('.search-pagination')
+
 const cardsPerPage = innerWidth < 1440 ? 8 : 9; // ok
 const hiddenClass = 'is-hidden';// ok
 
@@ -15,6 +17,7 @@ let query;
 let currentArray;
 
 formEl.addEventListener('submit', onSubmit);
+searchPagination.addEventListener('click', handleSwitchPageSearch);
 
 // bodypart запит
 function getSearchBodypart(group, query, page = 1, limit = 9) {
@@ -125,69 +128,75 @@ async function onSubmit(event) {
 }
 //********пагінація *****/
 
-// function renderExercisePagination(page) {
-//   pageCount = Math.ceil(exercises.length / cardsPerPage);
+function renderExercisePagination(page) {
+  pageCount = Math.ceil(currentArray.length / cardsPerPage);
 
-//   if (exercises.length <= cardsPerPage) {
-//     paginationExercises.innerHTML = '';
-//     return;
-//   }
+  console.log(currentArray);
 
-//   paginationExercises.innerHTML = Array(pageCount)
-//     .fill(1)
-//     .map((n, i) => n + i)
-//     .map(
-//       i =>
-//         `<li class="page-exercises" data-page="${i}"><button id="prevPage">${i}</button></li>`
-//     )
-//     .join('');
+  if (currentArray.length <= cardsPerPage) {
+    searchPagination.innerHTML = '';
+    return;
+  }
 
-//   const currentPageItem = paginationExercises.children[page - 1];
+  const a = Array(pageCount) //шо це?
+  console.log(a);
 
-//   currentPageItem.classList.add('active');
-//   // currentPageItem.firstElementChild.disabled = true;
+  searchPagination.innerHTML = Array(pageCount)
+    .fill(1)
+    .map((n, i) => n + i)
+    .map(
+      i =>
+        `<li class="page-exercises" data-page="${i}"><button id="prevPage">${i}</button></li>`
+    )
+    .join('');
 
-//   limitPagination(page);
-// }
+  const currentPageItem = searchPagination.children[page - 1];
 
-// function limitPagination(currentPage) {
-//   for (const pageItem of [...paginationExercises.children]) {
-//     const page = +pageItem.dataset.page;
+  currentPageItem.classList.add('active');
+  // currentPageItem.firstElementChild.disabled = true;
 
-//     if (
-//       page !== 1 &&
-//       page !== pageCount &&
-//       (page < currentPage - 3 || page > currentPage + 3)
-//     ) {
-//       pageItem.remove();
-//     }
-//   }
-//   const secondPage = paginationExercises.children[1]?.dataset.page;
-//   const secondToLastPage =
-//     paginationExercises.lastElementChild.previousElementSibling?.dataset.page;
-//   if (secondPage > 2) {
-//     paginationExercises.firstElementChild.after('...');
-//   }
-//   if (secondToLastPage < pageCount - 1) {
-//     paginationExercises.lastElementChild.before('...');
-//   }
-// }
+  limitPagination(page);
+}
 
-// function renderExerciseCards(page = 1) {
-//   const i = (page - 1) * cardsPerPage;
+function limitPagination(currentPage) {
+  for (const pageItem of [...searchPagination.children]) {
+    const page = +pageItem.dataset.page;
 
-//   const pageExercises = exercises.slice(i, i + cardsPerPage);
+    if (
+      page !== 1 &&
+      page !== pageCount &&
+      (page < currentPage - 3 || page > currentPage + 3)
+    ) {
+      pageItem.remove();
+    }
+  }
+  const secondPage = searchPagination.children[1]?.dataset.page;
+  const secondToLastPage =
+    searchPagination.lastElementChild.previousElementSibling?.dataset.page;
+  if (secondPage > 2) {
+    searchPagination.firstElementChild.after('...');
+  }
+  if (secondToLastPage < pageCount - 1) {
+    searchPagination.lastElementChild.before('...');
+  }
+}
 
-//   listExercisesEl.innerHTML = pageExercises.map(createExerciseCard).join('');
+function renderCards(page = 1) {
+  const i = (page - 1) * cardsPerPage;
 
-//   renderExercisePagination(page);
-// }
+  const pageSearch = currentArray.slice(i, i + cardsPerPage);
 
-// function handleSwitchPageExercises(evt) {
-//   const page = +evt.target.closest('.page-exercises')?.dataset.page;
+  searchListEl.innerHTML = pageSearch.map(createExerciseCard).join('');
 
-//   if (!page) return;
+  renderExercisePagination(page);
+}
 
-//   renderExerciseCards(page);
-// }
+function handleSwitchPageSearch(evt) {
+  const page = +evt.target.closest('.page-exercises')?.dataset.page; //?.page-exercises'
+
+  if (!page) return;
+
+  renderCards(page);
+}
+
 // export {getQuotes, getFilter, getSearch} додати cardsPerPage, renderExercisePagination, 
