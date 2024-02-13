@@ -11,7 +11,7 @@ const exercisesFilterSection = document.querySelector('.exercises-toolbar');
 const musclesButton = document.getElementById('muscles-button');
 const paginationExercises = document.querySelector('.pagination-exercises');
 const cardsPerPage = innerWidth < 1440 ? 8 : 9;
-const exercisesNavItem = document.querySelectorAll('.exercises-nav-item');
+const searchContainer = document.querySelector('.search-container');
 const formSeach = document.querySelector('.form-search');
 const spanEx = document.querySelector('.span-exercises ');
 const exerciseGroup = document.querySelector('.exercise-group');
@@ -77,6 +77,8 @@ async function handleGroupSelection(evt) {
       exercisesFilterSection.classList.add(hiddenClass);
       formSeach.classList.add(hiddenClass);
       spanEx.classList.add(hiddenClass);
+      searchContainer.classList.add(hiddenClass);
+
       // exerciseGroup.add(hiddenClass);
       exerciseGroup.textContent = '';
     }

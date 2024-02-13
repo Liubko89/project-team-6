@@ -6,7 +6,7 @@
 @import url('./quote.css');
 @import url('./exercises-muscles.css');
 @import url('./exercises-body-parts.css');
-/* @import url('./exercises-search-start.css'); */
+@import url('./exercises-search-start.css');
 @import url('./exercises-modal-backdrop.css');
 @import url('./daily-norm-of-sport.css');
 @import url('./footer.css');
@@ -33,6 +33,11 @@ body {
   pointer-events: none;
   width: 0;
   height: 0;
+  display: none;
+}
+
+.on-backdrop-scroll {
+  overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -46,5 +51,41 @@ body {
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+  }
+}
+
+/* styles for Scroll Top BTN */
+
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 15px;
+  padding: 25px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: rgba(126, 132, 127, 1);
+  color: rgba(246, 246, 246, 1);
+  cursor: pointer;
+  border-radius: 60%;
+  opacity: 0.8;
+  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation-delay: 8500ms;
+  scroll-behavior: smooth;
+}
+
+@media screen and (min-width: 768px) {
+  #scrollToTopBtn {
+    font-size: 15px;
+    padding: 25px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #scrollToTopBtn {
+    font-size: 28px;
+    padding: 27px 29px;
   }
 }
