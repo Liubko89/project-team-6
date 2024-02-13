@@ -176,7 +176,7 @@ function modalWindowMarkup(filters = {}) {
                   <use href="${icons}#icon-heart"></use>
                   </svg>
                 </button>
-                <button class="exercise-raiting-btn" type="submit" data="${_id}">
+                <button class="exercise-raiting-btn is-hidden" type="submit" data="${_id}">
                   Give a rating
                 </button>
               </div>
