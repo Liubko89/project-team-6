@@ -49,14 +49,14 @@ function renderContent(arr) {
     <div class="box-left">
     <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
     
-    <button class="trash-btn" type="button">
+    <button class="trash-btn" id="trash" type="button">
     <svg class="icon-trash" width="18" height="18"><use href="${icons}#icon-trash"></use></svg>
     </button>
     
     </div>
   
     
-    <button type = "button" class="btn-start-arrow">Start<svg class="icon-arrow" width="14" height="14"><use href="${icons}#icon-arrow"></use></svg></button>
+    <button type = "button" class="btn-start-arrow" id="open">Start<svg class="icon-arrow" width="14" height="14"><use href="${icons}#icon-arrow"></use></svg></button>
     </div>
              
               <div class="exercises-par"> 
@@ -75,4 +75,20 @@ function renderContent(arr) {
 
 gallery.innerHTML = renderContent(render);
 
-console.log(render);
+gallery.addEventListener('click', handleRemove);
+
+function handleRemove(event) {
+  console.log(event.target.closest('li').id);
+  console.dir(event.target.closest('button').id);
+
+  if (event.target.closest('button').id === 'trash') {
+    render.find((el, idx, arr) => {
+      return el._id === event.target.closest('li').id
+        ? arr.splice(idx, 1)
+        : null;
+    });
+    localStorage.setItem('favorites', JSON.stringify(render));
+    gallery.innerHTML = renderContent(render);
+    checkContent(render);
+  }
+}
