@@ -1,3 +1,4 @@
+.search-pagination,
 .pagination,
 .pagination-exercises {
   display: flex;
@@ -33,6 +34,7 @@
   align-items: center;
 }
 
+.search-pagination .page-exercises.active button,
 .pagination-exercises .page-exercises.active button {
   border: 1px solid #1b1b1b;
   border-radius: 18px;
@@ -45,6 +47,7 @@
   align-items: center;
 }
 
+.search-pagination .page-exercises button,
 .pagination-exercises .page-exercises button {
   font-family: var(--font-family);
   font-weight: 400;

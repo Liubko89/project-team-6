@@ -184,13 +184,12 @@
   }
 }
 
+.search-pagination,
 .pagination-exercises {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding-top: 12px;
   gap: 8px;
-}
-.pagination-exercises {
   font-size: 32px;
 }
