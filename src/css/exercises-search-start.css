@@ -1,13 +1,3 @@
-.search-container {
-  padding-bottom: 40px;
-}
-
-/* .search-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-} */
 
 .no-results {
   display: block;
@@ -34,4 +24,8 @@
     .no-results {
         padding: 217px 346px 350px;
     }
-} 
+
+    .search-container {
+        height: 639px;
+    }
+}

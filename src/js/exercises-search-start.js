@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {searchFilter, searchGroup, createExerciseCard, renderExerciseCards}  from'./exercises-body-parts'
+import {searchFilter, searchGroup, createExerciseCard}  from'./exercises-body-parts'
 
 const hiddenContainer = document.querySelector('.fetch-container'); //ok
 const exercisesFilterSection = document.querySelector('.exercises-toolbar'); //ok
@@ -13,14 +13,13 @@ const searchPagination = document.querySelector('.search-pagination')
 const cardsPerPage = innerWidth < 1440 ? 8 : 9; // ok
 const hiddenClass = 'is-hidden';// ok
 
-let query;
-let currentArray;
+let query, currentArray, pageCount;
 
 formEl.addEventListener('submit', onSubmit);
 searchPagination.addEventListener('click', handleSwitchPageSearch);
 
 // bodypart запит
-function getSearchBodypart(group, query, page = 1, limit = 9) {
+function getSearchBodypart(group, query, page = 1, limit) {
   return axios.get('/exercises', {
     params: {
         bodypart: group,
@@ -32,7 +31,7 @@ function getSearchBodypart(group, query, page = 1, limit = 9) {
 }
 
 // muscles запит
-function getSearchMuscles(group, query, page = 1, limit = 9) {
+function getSearchMuscles(group, query, page = 1, limit) {
   return axios.get('/exercises', {
     params: {
         muscles: group,
@@ -44,7 +43,7 @@ function getSearchMuscles(group, query, page = 1, limit = 9) {
 }
 
 // equipment запит
-function getSearchEquipment(group, query, page = 1, limit = 9) {
+function getSearchEquipment(group, query, page = 1, limit) {
   return axios.get('/exercises', {
     params: {
         equipment: group,
@@ -56,7 +55,6 @@ function getSearchEquipment(group, query, page = 1, limit = 9) {
 }
 
 // ******
-
 
 async function onSubmit(event) {
    event.preventDefault();
@@ -95,51 +93,44 @@ async function onSubmit(event) {
         noResultsText.classList.remove(hiddenClass);
         exercisesFilterSection.classList.add(hiddenClass);
         searchListEl.classList.add(hiddenClass);
-        
-        
+        searchPagination.innerHTML = '';
 
           } else {              
         
             const {
              results: [{ bodyPart, target, name, burnedCalories, rating, time, _id }],
           } = data.data;
-        // console.log(data);
+        
         searchContainer.classList.remove(hiddenClass);
         searchListEl.classList.remove(hiddenClass);
         noResultsText.classList.add(hiddenClass);    
         exercisesFilterSection.classList.add(hiddenClass);
-        
           
         currentArray = data.data.results;
         
-          // console.log('TODO: малюэмо розмітку'); 
-              
-         searchListEl.innerHTML = currentArray.map(createExerciseCard).join('');
-
-
+        renderCards();
           }
           
   } catch (error) {
     console.log(error);
   } finally {
-    // console.log('блок finally');
-    formEl.reset();
+
+      formEl.reset();
+      
   }
 }
 //********пагінація *****/
 
 function renderExercisePagination(page) {
+  
   pageCount = Math.ceil(currentArray.length / cardsPerPage);
 
-  console.log(currentArray);
+
 
   if (currentArray.length <= cardsPerPage) {
     searchPagination.innerHTML = '';
     return;
   }
-
-  const a = Array(pageCount) //шо це?
-  console.log(a);
 
   searchPagination.innerHTML = Array(pageCount)
     .fill(1)
@@ -153,8 +144,7 @@ function renderExercisePagination(page) {
   const currentPageItem = searchPagination.children[page - 1];
 
   currentPageItem.classList.add('active');
-  // currentPageItem.firstElementChild.disabled = true;
-
+  
   limitPagination(page);
 }
 
@@ -192,11 +182,9 @@ function renderCards(page = 1) {
 }
 
 function handleSwitchPageSearch(evt) {
-  const page = +evt.target.closest('.page-exercises')?.dataset.page; //?.page-exercises'
+  const page = +evt.target.closest('.page-exercises')?.dataset.page; 
 
   if (!page) return;
 
   renderCards(page);
 }
-
-// export {getQuotes, getFilter, getSearch} додати cardsPerPage, renderExercisePagination, 
