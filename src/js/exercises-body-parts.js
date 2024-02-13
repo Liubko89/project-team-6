@@ -15,6 +15,7 @@ const searchContainer = document.querySelector('.search-container');
 const formSeach = document.querySelector('.form-search');
 const spanEx = document.querySelector('.span-exercises ');
 const exerciseGroup = document.querySelector('.exercise-group');
+const loaderEl = document.querySelector('.loader-gallery');
 
 let exercises, pageCount;
 let searchFilter;
@@ -53,7 +54,7 @@ exercisesFilterSection.classList.add(hiddenClass);
 
 async function handleGroupSelection(evt) {
   const card = evt.target.closest('.exercise-card');
-
+  loaderEl.classList.remove(hiddenClass);
   if (!card) return;
   // currentGroup = { group };
   const { filter, group, page } = card.dataset;
@@ -62,8 +63,10 @@ async function handleGroupSelection(evt) {
   searchGroup = group;
 
   await getExercises(filterDict[filter], group).then(renderExerciseCards);
+
   hiddenContainer.classList.add(hiddenClass);
   exercisesFilterSection.classList.remove(hiddenClass);
+  loaderEl.classList.add(hiddenClass);
 
   filterBtn.addEventListener('click', handleBackClick);
   formSeach.classList.remove(hiddenClass);
@@ -71,6 +74,8 @@ async function handleGroupSelection(evt) {
   // exerciseGroup.remove(hiddenClass);
 
   function handleBackClick(evt) {
+    loaderEl.classList.remove(hiddenClass);
+
     console.log(evt.target);
     if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
@@ -78,6 +83,7 @@ async function handleGroupSelection(evt) {
       formSeach.classList.add(hiddenClass);
       spanEx.classList.add(hiddenClass);
       searchContainer.classList.add(hiddenClass);
+      loaderEl.classList.add(hiddenClass);
 
       // exerciseGroup.add(hiddenClass);
       exerciseGroup.textContent = '';

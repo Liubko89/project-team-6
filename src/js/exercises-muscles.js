@@ -3,6 +3,7 @@ const exercisesContainer = document.querySelector('.exercises-container');
 const exerciseGroup = document.querySelector('.exercise-group');
 const pagination = document.querySelector('.pagination');
 const BASE_URL = 'https://energyflow.b.goit.study/api';
+
 let currentFilter = 'Muscles';
 
 containerMuscles.addEventListener('click', handleContainerMuscles);
@@ -91,9 +92,6 @@ function handleSwitchPage(evt) {
   getExercises(currentFilter, page).then(render);
 }
 
-
-
-
 ///////////////////////////
 exercisesContainer.addEventListener('click', handleExerciseCardClick);
 
@@ -106,7 +104,6 @@ function handleExerciseCardClick(event) {
   const name = exerciseCard.querySelector('.description-category').textContent;
 
   exerciseGroup.textContent = name;
-
 
   return exerciseGroup.textContent;
 }

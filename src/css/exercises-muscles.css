@@ -90,10 +90,37 @@
   .container-muscles {
     padding: 64px 48px;
     width: 736px;
+    position: relative;
   }
   .exercises-search {
     display: flex;
     margin-bottom: 35px;
+  }
+  .loader-gallery {
+    width: 16px;
+    height: 16px;
+    top: 6%;
+    left: 70%;
+    border-radius: 50%;
+    background-color: #151313;
+    box-shadow: 32px 0 #757474, -32px 0 #5a5858;
+    position: absolute;
+    animation: flash 0.5s ease-out infinite alternate;
+  }
+
+  @keyframes flash {
+    0% {
+      background-color: #fff2;
+      box-shadow: 32px 0 #fff2, -32px 0 #fff;
+    }
+    50% {
+      background-color: #fff;
+      box-shadow: 32px 0 #fff2, -32px 0 #fff2;
+    }
+    100% {
+      background-color: #fff2;
+      box-shadow: 32px 0 #fff, -32px 0 #fff2;
+    }
   }
   .exercises {
     font-size: 44px;
