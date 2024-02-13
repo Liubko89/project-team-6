@@ -109,7 +109,7 @@ function createExerciseCard({
   <div class="rating-stars"><p class="rating-par">${rating}</p><svg class="icon-star" width="18" height="18"><use href="${icons}#icon-star"></use></svg></div></div>
 
   
-  <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="${icons}#icon-arrow"></use></svg></button>
+  <button type = "button" class="btn-start-arrow">Start<svg class="icon-arrow" width="14" height="14"><use href="${icons}#icon-arrow"></use></svg></button>
   </div>
            
             <div class="exercises-par"> 

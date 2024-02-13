@@ -321,3 +321,18 @@
     padding: 156px 0 0 0;
   }
 }
+
+.trash-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  margin-left: 8px;
+}
+
+.icon-trash {
+  fill: transparent;
+  stroke: var(--black);
+}
