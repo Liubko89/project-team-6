@@ -1,40 +1,48 @@
-import icons from './svg/icons.svg'
-const home = document.getElementById('home')
-const favorites = document.getElementById('favorites')
-const back = document.querySelector('.back-image')
-const quote = document.querySelector('.quote')
-const text = document.querySelectorAll('.mob-nav-link')
-const to_delete = document.querySelector('.content-no-favorites')
-const gallery = document.querySelector('.gallery')
+// import icons from './svg/icons.svg';
+const home = document.getElementById('home');
+const favorites = document.getElementById('favorites');
+const back = document.querySelector('.back-image');
+const quote = document.querySelector('.quote');
+const text = document.querySelectorAll('.mob-nav-link');
+const to_delete = document.querySelector('.content-no-favorites');
+const gallery = document.querySelector('.gallery');
 
-function onClickChange () {
-    home.classList.remove('is-active')
-    home.classList.add('no-active')
-    favorites.classList.remove('no-active')
-    favorites.classList.add('is-active')
-    quote.classList.remove('container')
+function onClickChange() {
+  home.classList.remove('is-active');
+  home.classList.add('no-active');
+  favorites.classList.remove('no-active');
+  favorites.classList.add('is-active');
+  quote.classList.remove('container');
 
-    text[0].classList.remove('is-active')
-    text[0].classList.add('no-active')
-    text[1].classList.remove('no-active')
-    text[1].classList.add('is-active')
+  text[0].classList.remove('is-active');
+  text[0].classList.add('no-active');
+  text[1].classList.remove('no-active');
+  text[1].classList.add('is-active');
 
-
-    back.style.display = "none"
+  back.style.display = 'none';
 }
 
-onClickChange()
+onClickChange();
 
-const render = JSON.parse(localStorage.getItem('favorites'))
-console.log(render)
+const render = JSON.parse(localStorage.getItem('favorites'));
+console.log(render);
 
-function renderContent(arr){
-    to_delete.style.display = 'none'
-    return arr.map(({bodyPart,name,_id,target,burnedCalories,time}) => `<li class = "list-exercises" id="${_id}" data-filter="${name}"><div class="options">
+function renderContent(arr) {
+  to_delete.style.display = 'none';
+  return arr
+    .map(
+      ({
+        bodyPart,
+        name,
+        _id,
+        target,
+        burnedCalories,
+        time,
+      }) => `<li class = "list-exercises" id="${_id}" data-filter="${name}"><div class="options">
     <div class="box-up">
     <div class="box-left">
     <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-    <div class="rating-stars"><p class="rating-par"></p><svg class="icon-star" width="18" height="18"><use href="${icons}#icon-star"></use></svg></div></div>
+    <div class="rating-stars"><p class="rating-par"></p><svg class="icon-star" width="18" height="18"><use href="./svg/icons.svg#icon-star"></use></svg></div></div>
   
     
     <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="./svg/icons.svg#icon-arrow"></use></svg></button>
@@ -50,7 +58,8 @@ function renderContent(arr){
                 <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
               </div>
              </li>`
-).join('')
+    )
+    .join('');
 }
 
-gallery.innerHTML = renderContent(render)
+gallery.innerHTML = renderContent(render);
