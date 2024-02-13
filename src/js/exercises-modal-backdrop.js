@@ -30,8 +30,18 @@ async function handleClick(event) {
     const isIdExists = storage.some(storage => storage._id === res);
 
     isIdExists
-      ? (exerciseFavoriteBtn.textContent = 'Remove from')
-      : (exerciseFavoriteBtn.textContent = 'Add to favorites');
+      ? (exerciseFavoriteBtn.innerHTML = `Remove from <svg
+                  class="exercise-fav-icon"
+                  aria-label="Heart icon"
+                  >
+                  <use href="${icons}#icon-heart"></use>
+                  </svg>`)
+      : (exerciseFavoriteBtn.innerHTML = `Add to favorites <svg
+                  class="exercise-fav-icon"
+                  aria-label="Heart icon"
+                  >
+                  <use href="${icons}#icon-heart"></use>
+                  </svg>`);
 
     // *** ============== ------------------------------------- ============== ***
 
