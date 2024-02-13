@@ -1,4 +1,4 @@
-// import icons from './svg/icons.svg';
+import icons from './svg/icons.svg';
 const home = document.getElementById('home');
 const favorites = document.getElementById('favorites');
 const back = document.querySelector('.back-image');
@@ -42,14 +42,15 @@ function renderContent(arr) {
     <div class="box-up">
     <div class="box-left">
     <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-    <div class="rating-stars"><p class="rating-par"></p><svg class="icon-star" width="18" height="18"><use href="./svg/icons.svg#icon-star"></use></svg></div></div>
+    <div class="rating-stars"><p class="rating-par"></p>
+    <svg class="icon-star" width="18" height="18"><use href="${icons}#icon-star"></use></svg></div></div>
   
     
-    <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="./svg/icons.svg#icon-arrow"></use></svg></button>
+    <button type = "button" class="btn-start-arrow">START<svg class="icon-arrow" width="14" height="14"><use href="${icons}#icon-arrow"></use></svg></button>
     </div>
              
               <div class="exercises-par"> 
-              <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="./svg/icons.svg#icon-running-man"></use></svg></div>
+              <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="${icons}#icon-running-man"></use></svg></div>
               <h4 class="ex-name">${name}</h4>
               </div>
               <div class="options-item-wrap">
