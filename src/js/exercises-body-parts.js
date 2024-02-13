@@ -71,7 +71,6 @@ async function handleGroupSelection(evt) {
   // exerciseGroup.remove(hiddenClass);
 
   function handleBackClick(evt) {
-    console.log(evt.target);
     if (evt.currentTarget === filterBtn) {
       hiddenContainer.classList.remove(hiddenClass);
       exercisesFilterSection.classList.add(hiddenClass);
