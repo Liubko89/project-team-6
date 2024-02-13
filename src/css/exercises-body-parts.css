@@ -90,6 +90,7 @@
   align-items: baseline;
 }
 
+.gallery,
 .search-list,
 .exercises-gallery {
   display: flex;
