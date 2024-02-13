@@ -184,6 +184,19 @@ function handleRemove(event) {
 
     const stars = document.querySelectorAll('.stars-wrap-svg');
     getStars(stars, Math.round(rating));
+
+    const closebtn = document.getElementById('modal-close-btn');
+    closebtn.addEventListener('click', () => {
+      favoritesBackdrop.classList.remove('is-open');
+      bodyOnScr.classList.remove('on-scroll');
+    });
+
+    favoritesBackdrop.addEventListener('click', onBackDropClick);
+    window.addEventListener('keydown', event => {
+      if (event.code === 'Escape') {
+        onCloseBtn(event);
+      }
+    });
   }
 }
 
@@ -191,4 +204,22 @@ function getStars(arr, rate) {
   arr.forEach((el, id) => {
     id < rate ? el.classList.add('yellow') : null;
   });
+}
+
+function onCloseBtn() {
+  window.removeEventListener('keydown', onWindowKeydown);
+  favoritesBackdrop.classList.remove('is-open');
+  bodyOnScr.classList.remove('on-scroll');
+}
+
+function onWindowKeydown(event) {
+  if (event.code === 'Escape') {
+    onCloseBtn(event);
+  }
+}
+
+function onBackDropClick(event) {
+  if (event.currentTarget === event.target) {
+    onCloseBtn(event);
+  }
 }

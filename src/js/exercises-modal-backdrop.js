@@ -77,11 +77,13 @@ function onCloseBtn() {
   modalBackdrop.classList.remove(modalVisibility);
   bodyOnScroll.classList.remove('on-scroll');
 }
+
 function onWindowKeydown(event) {
   if (event.code === 'Escape') {
     onCloseBtn(event);
   }
 }
+
 function modalWindowMarkup(filters = {}) {
   const {
     _id,
