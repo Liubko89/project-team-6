@@ -1,3 +1,7 @@
+.fetch-container {
+  min-height: 840px;
+}
+
 .container-exercises-home {
   padding: 40px 20px;
   border-radius: 30px;
@@ -51,6 +55,13 @@
 /* .exercises-toolbar {
   padding-bottom: 40px;
 } */
+
+@media screen and (max-width: 767.9px) {
+  .form-search {
+    width: 100%;
+  }
+}
+
 .form-search {
   position: relative;
   margin-bottom: 40px;
@@ -251,6 +262,10 @@ div.work-div {
 }
 
 @media screen and (min-width: 768px) {
+  .exercises-toolbar {
+    min-height: 856px;
+  }
+
   .form-search {
     margin-bottom: 0;
   }
@@ -271,6 +286,10 @@ div.work-div {
 }
 
 @media screen and (min-width: 1440px) {
+  .exercises-toolbar {
+    min-height: 608px;
+  }
+
   .list-exercises {
     min-width: 424px;
   }
