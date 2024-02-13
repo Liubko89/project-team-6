@@ -4,8 +4,10 @@ const favorites = document.getElementById('favorites');
 const back = document.querySelector('.back-image');
 const quote = document.querySelector('.quote');
 const text = document.querySelectorAll('.mob-nav-link');
-const to_delete = document.querySelector('.content-no-favorites');
+const toDelete = document.querySelector('.content-no-favorites');
 const gallery = document.querySelector('.gallery');
+
+back.classList.add('is-hidden');
 
 function onClickChange() {
   home.classList.remove('is-active');
@@ -18,16 +20,21 @@ function onClickChange() {
   text[0].classList.add('no-active');
   text[1].classList.remove('no-active');
   text[1].classList.add('is-active');
-
-  back.style.display = 'none';
 }
 
 onClickChange();
 
 const render = JSON.parse(localStorage.getItem('favorites'));
 
+checkContent(render);
+
+function checkContent(arr) {
+  arr.length !== 0
+    ? toDelete.classList.add('is-hidden')
+    : toDelete.classList.remove('is-hidden');
+}
+
 function renderContent(arr) {
-  to_delete.style.display = 'none';
   return arr
     .map(
       ({
@@ -67,3 +74,5 @@ function renderContent(arr) {
 }
 
 gallery.innerHTML = renderContent(render);
+
+console.log(render);
