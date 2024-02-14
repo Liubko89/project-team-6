@@ -75,6 +75,13 @@
   background-position: center center;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 200px) and (min-resolution: 192dpi) {
+  .back-image {
+    background-image: url('../img/quote/rectangle-mob@2x.png');
+  }
+}
+
 @media (max-width: 767px) {
   .quote__box {
     width: 335px;
@@ -90,6 +97,7 @@
         border: 2px solid var(--modal-backdrop);
     } */
 }
+
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .quote__box {
@@ -138,6 +146,13 @@
     background-color: var(--hero-bg);
   }
 }
+
+@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
+  .back-image {
+    background-image: url('../img/quote/rectangle-tab@2x.png');
+  }
+}
+
 /* Desktop */
 @media screen and (min-width: 1440px) {
   .quote__title {
@@ -176,5 +191,14 @@
   .quote__backend-author {
     margin-top: 25px;
     margin-left: 94px;
+  }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+  .back-image {
+    width: 704px;
+    height: 302px;
+    background-image: url('../img/quote/rectangle-desk@2x.png');
+    background-color: var(--hero-bg);
   }
 }
