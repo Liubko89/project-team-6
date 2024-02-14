@@ -4,12 +4,10 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.getElementById('footerForm');
 
-
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const email = document.getElementById('emailInput').value;
-
 
   if (!isValidEmail(email)) {
     iziToast.error({
@@ -35,7 +33,7 @@ form.addEventListener('submit', function (event) {
         message: response.data.message,
         position: 'topCenter',
         messageColor: '#fff',
-        backgroundColor: '#1b1b1b',
+        backgroundColor: '#eea10c',
       });
       document.getElementById('emailInput').value = '';
     })
