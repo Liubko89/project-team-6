@@ -251,7 +251,7 @@
   .favorite-sect-no-content {
     padding: 64px 48px;
     border-radius: 50px;
-    height: 928px;
+    min-height: 928px;
   }
 
   .title {
@@ -309,7 +309,7 @@
   }
 
   .favorite-sect-no-content {
-    height: 687px;
+    min-height: 687px;
   }
 
   .qoute-and-img {
