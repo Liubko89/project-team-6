@@ -3,11 +3,13 @@ import icons from '../svg/icons.svg';
 
 const modalBackdrop = document.querySelector('.modal-backdrop');
 const startBtn = document.querySelector('.exercises-gallery');
+const startSearchBtn = document.querySelector('.search-list');//me
 const bodyOnScroll = document.querySelector('body');
 
 const modalVisibility = 'is-open';
 
 startBtn.addEventListener('click', handleClick);
+startSearchBtn.addEventListener('click', handleClick);//me
 
 async function handleClick(event) {
   if (event.target.nodeName !== 'BUTTON') {
