@@ -1,10 +1,7 @@
 .daily {
-  padding: 16px 0;
+  padding: 0;
 }
-.daily .container {
-}
-.daily__img {
-}
+
 .daily__desc {
   border-radius: 30px;
   background: #1b1b1b;
@@ -22,8 +19,7 @@
   justify-content: center;
   align-items: center;
 }
-.wraps {
-}
+
 .daily__desc-title {
   font-family: var(--font-family);
   font-weight: 500;
@@ -64,9 +60,6 @@
   .daily__desc-title {
     font-size: 24px;
   }
-  .daily__desc-sub{
-    
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -75,9 +68,7 @@
     grid-template-columns: 50% 50%;
   }
 
-  .daily__desc-text{
+  .daily__desc-text {
     margin-top: 24px;
   }
-
- 
 }
