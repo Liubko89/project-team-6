@@ -1,28 +1,28 @@
-import{i as e}from"./assets/scroll-to-top-btn-ea3e1b00.js";import"./assets/vendor-db25513e.js";const h=document.getElementById("home"),x=document.getElementById("favorites"),q=document.querySelector(".back-image"),E=document.querySelector(".quote"),o=document.querySelectorAll(".mob-nav-link"),f=document.querySelector(".content-no-favorites"),u=document.querySelector(".gallery"),r=document.querySelector(".favorites-backdrop"),v=document.querySelector("body");q.classList.add("is-hidden");function B(){h.classList.remove("is-active"),h.classList.add("no-active"),x.classList.remove("no-active"),x.classList.add("is-active"),E.classList.remove("container"),o[0].classList.remove("is-active"),o[0].classList.add("no-active"),o[1].classList.remove("no-active"),o[1].classList.add("is-active")}B();const c=JSON.parse(localStorage.getItem("favorites"));w(c);function w(s){s.length!==0?f.classList.add("is-hidden"):f.classList.remove("is-hidden")}function b(s){return s.map(({bodyPart:i,name:a,_id:t,target:n,burnedCalories:l,time:d})=>`<li class = "list-exercises" id="${t}" data-filter="${a}"><div class="options">
+import{i}from"./assets/scroll-to-top-btn-94d8516c.js";import"./assets/vendor-db25513e.js";const b=document.getElementById("home"),L=document.getElementById("favorites"),B=document.querySelector(".back-image"),C=document.querySelector(".quote"),p=document.querySelectorAll(".mob-nav-link"),y=document.querySelector(".content-no-favorites"),g=document.querySelector(".gallery"),l=document.querySelector(".favorites-backdrop"),h=document.querySelector("body"),r=document.querySelector(".favorites-pagination"),d=9;let n=1;B.classList.add("is-hidden");function P(){b.classList.remove("is-active"),b.classList.add("no-active"),L.classList.remove("no-active"),L.classList.add("is-active"),C.classList.remove("container"),p[0].classList.remove("is-active"),p[0].classList.add("no-active"),p[1].classList.remove("no-active"),p[1].classList.add("is-active")}P();const c=JSON.parse(localStorage.getItem("favorites"));x(c);g.addEventListener("click",O);r.addEventListener("click",A);function M(e){e.length!==0?y.classList.add("is-hidden"):y.classList.remove("is-hidden")}function $(e){return e.map(({bodyPart:s,name:a,_id:t,target:o,burnedCalories:u,time:v})=>`<li class = "list-exercises" id="${t}" data-filter="${a}"><div class="options">
     <div class="box-up">
     <div class="box-left">
     <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
     
     <button class="trash-btn" id="trash" type="button">
-    <svg class="icon-trash" width="18" height="18"><use href="${e}#icon-trash"></use></svg>
+    <svg class="icon-trash" width="18" height="18"><use href="${i}#icon-trash"></use></svg>
     </button>
     
     </div>
   
     
-    <button type = "button" class="btn-start-arrow" id="open">Start<svg class="icon-arrow" width="14" height="14"><use href="${e}#icon-arrow"></use></svg></button>
+    <button type = "button" class="btn-start-arrow" id="open">Start<svg class="icon-arrow" width="14" height="14"><use href="${i}#icon-arrow"></use></svg></button>
     </div>
              
               <div class="exercises-par"> 
-              <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="${e}#icon-running-man"></use></svg></div>
+              <div class="options-item-span"><svg class="icon-men" width="18" height="18"><use href="${i}#icon-running-man"></use></svg></div>
               <h4 class="ex-name">${a}</h4>
               </div>
               <div class="options-item-wrap">
-                <p class="options-item"><span class="hid-txt">Burned calories:</span>${l}/${d}</p>
-                <p class="options-item"><span class="hid-txt">Body part:</span>${i}</p>
-                <p class="options-item"><span class="hid-txt">Target:</span>${n}</p></div>
+                <p class="options-item"><span class="hid-txt">Burned calories:</span>${u}/${v}</p>
+                <p class="options-item"><span class="hid-txt">Body part:</span>${s}</p>
+                <p class="options-item"><span class="hid-txt">Target:</span>${o}</p></div>
               </div>
-             </li>`).join("")}u.innerHTML=b(c);u.addEventListener("click",C);function C(s){if(s.target.closest("button").id==="trash"&&(c.find((i,a,t)=>i._id===s.target.closest("li").id?t.splice(a,1):null),localStorage.setItem("favorites",JSON.stringify(c)),u.innerHTML=b(c),w(c)),s.target.closest("button").id==="open"){r.classList.add("is-open"),v.classList.add("on-scroll");const i=c.find(p=>p._id===s.target.closest("li").id),{bodyPart:a,equipment:t,time:n,target:l,burnedCalories:d,gifUrl:y,name:L,popularity:$,rating:g,description:k}=i;r.innerHTML=`<div class="exercises-modal-window">
+             </li>`).join("")}function O(e){if(e.target.nodeName==="BUTTON"&&(e.target.closest("button").id==="trash"&&(c.find((s,a,t)=>s._id===e.target.closest("li").id?t.splice(a,1):null),localStorage.setItem("favorites",JSON.stringify(c)),c.length<=(n-1)*d&&(n-=1),x(c)),e.target.closest("button").id==="open")){l.classList.add("is-open"),h.classList.add("on-scroll");const s=c.find(m=>m._id===e.target.closest("li").id),{bodyPart:a,equipment:t,time:o,target:u,burnedCalories:v,gifUrl:k,name:S,popularity:q,rating:w,description:E}=s;l.innerHTML=`<div class="exercises-modal-window">
           <div class="exercise-container">
             <button class="exercise-close-btn" id="modal-close-btn" type="button">
               <svg
@@ -31,36 +31,36 @@ import{i as e}from"./assets/scroll-to-top-btn-ea3e1b00.js";import"./assets/vendo
                 height="10"
                 aria-label="Close icon"
               >
-                <use href="${e}#icon-close-btn"></use>
+                <use href="${i}#icon-close-btn"></use>
               </svg>
             </button>
             <div class="exercise-image-wrapper">
               <img
-                src="${y}"
+                src="${k}"
                 alt=""
                 class="exercise-image-modal"
               />
             </div>
             <div class="exercise-info-wrapper">
               <div class="exercise-name-container decorate-line">
-                <p class="exercise-name">${L}</p>
+                <p class="exercise-name">${S}</p>
                 <div class="rating-container">
-                <p class="exercise-rating">${g}</p>
+                <p class="exercise-rating">${w}</p>
                 <div class="stars-wrap">
                   <svg class="stars-wrap-svg" width="18" height="18">
-                    <use href="${e}#icon-star"></use>
+                    <use href="${i}#icon-star"></use>
                   </svg>
                   <svg class="stars-wrap-svg" width="18" height="18">
-                    <use href="${e}#icon-star"></use>
+                    <use href="${i}#icon-star"></use>
                   </svg>
                   <svg class="stars-wrap-svg" width="18" height="18">
-                    <use href="${e}#icon-star"></use>
+                    <use href="${i}#icon-star"></use>
                   </svg>
                   <svg class="stars-wrap-svg" width="18" height="18">
-                    <use href="${e}#icon-star"></use>
+                    <use href="${i}#icon-star"></use>
                   </svg>
                   <svg class="stars-wrap-svg" width="18" height="18">
-                    <use href="${e}#icon-star"></use>
+                    <use href="${i}#icon-star"></use>
                   </svg>
                </div>
                 </div>
@@ -69,7 +69,7 @@ import{i as e}from"./assets/scroll-to-top-btn-ea3e1b00.js";import"./assets/vendo
                 <ul class="exercise-params-list">
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Target</p>
-                    <p class="exercise-param-value exercise-param-target">${l}</p>
+                    <p class="exercise-param-value exercise-param-target">${u}</p>
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Body part</p>
@@ -81,15 +81,15 @@ import{i as e}from"./assets/scroll-to-top-btn-ea3e1b00.js";import"./assets/vendo
                   </li>
                   <li class="exercise-params-card">
                     <p class="exercise-param-name">Popular</p>
-                    <p class="exercise-param-value exercise-param-popularuty">${$}</p>
+                    <p class="exercise-param-value exercise-param-popularuty">${q}</p>
                   </li>
                   <li class="exercise-params-card">
                   <p class="exercise-param-name">Burned calories</p>
-                  <p class="exercise-param-value exercise-param-popularuty">${d}/${n} m</p></li>
+                  <p class="exercise-param-value exercise-param-popularuty">${v}/${o} m</p></li>
                 </ul>
               </div>
-              <p class="exercise-descr">${k}</p>
+              <p class="exercise-descr">${E}</p>
             </div>
           </div>
-        </div>`;const S=document.querySelectorAll(".stars-wrap-svg");T(S,Math.round(g)),document.getElementById("modal-close-btn").addEventListener("click",()=>{r.classList.remove("is-open"),v.classList.remove("on-scroll")}),r.addEventListener("click",O),window.addEventListener("keydown",p=>{p.code==="Escape"&&m()})}}function T(s,i){s.forEach((a,t)=>{t<i&&a.classList.add("yellow")})}function m(){window.removeEventListener("keydown",I),r.classList.remove("is-open"),v.classList.remove("on-scroll")}function I(s){s.code==="Escape"&&m()}function O(s){s.currentTarget===s.target&&m()}
+        </div>`;const T=document.querySelectorAll(".stars-wrap-svg");N(T,Math.round(w)),document.getElementById("modal-close-btn").addEventListener("click",()=>{l.classList.remove("is-open"),h.classList.remove("on-scroll")}),l.addEventListener("click",I),window.addEventListener("keydown",m=>{m.code==="Escape"&&f()})}}function N(e,s){e.forEach((a,t)=>{t<s&&a.classList.add("yellow")})}function f(){window.removeEventListener("keydown",H),l.classList.remove("is-open"),h.classList.remove("on-scroll")}function H(e){e.code==="Escape"&&f()}function I(e){e.currentTarget===e.target&&f()}function U(e){r.innerHTML="";for(let s=1;s<=e;s+=1)r.insertAdjacentHTML("beforeend",`<li class="page-exercises" data-page="${s}"><button id="prevPage">${s}</button></li>`)}function x(e){if(M(e),e.length<=d)g.innerHTML=$(e),r.classList.add("is-hidden");else{const a=(n-1)*d,t=a+d;r.classList.remove("is-hidden"),U(Math.ceil(e.length/d));const o=e.slice(a,t);g.innerHTML=$(o)}[...r.children][n-1].classList.add("active")}function A(e){e.target.nodeName==="BUTTON"&&(n=e.target.textContent,x(c))}
 //# sourceMappingURL=commonHelpers.js.map
