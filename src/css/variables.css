@@ -1,12 +1,12 @@
 :root {
-  --black: rgb(27, 27, 27);
-  --grey: rgb(126, 132, 127);
-  --grey-hover: rgb(95, 101, 96);
-  --white-dirty: rgb(246, 246, 246);
-  --stars: rgba(27, 27, 27, 0.2);
-  --stars-hover: rgb(238, 161, 12);
-  --white: rgb(255, 255, 255);
-  --hero-bg: rgb(232, 232, 232);
-  --dark-star: rgba(246, 246, 246, 0.6);
-  --modal-backdrop: rgba(27, 27, 27, 0.6);
+  --black: #1b1b1b;
+  --grey: #7e847f;
+  --grey-hover: #5f6560;
+  --white-dirty: #f6f6f6;
+  --stars: #1b1b1b33;
+  --stars-hover: #eea10c;
+  --white: #ffffff;
+  --hero-bg: #e8e8e8;
+  --dark-star: #f6f6f699;
+  --modal-backdrop: #1b1b1b99;
 }

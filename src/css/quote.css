@@ -1,5 +1,8 @@
+.section-quote {
+  margin-bottom: 20px;
+}
+
 .quote__box {
-  width: 335px;
   height: 272px;
   border-radius: 30px;
   background: var(--grey);
@@ -67,13 +70,11 @@
 .back-image {
   background-image: url('../img/quote/rectangle-mob.png');
   background-color: var(--white-dirty);
-  width: 335px;
   height: 272px;
   border-radius: 30px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 200px) and (min-resolution: 192dpi) {
@@ -82,24 +83,12 @@
   }
 }
 
-@media (max-width: 767px) {
-  .quote__box {
-    width: 335px;
-    height: 272px;
-    border-radius: 30px;
-    background: var(--grey);
-    position: relative;
-    transition: border-color 0.3s ease;
-  }
-  /* .quote__box:hover,
-    .quote__box:focus {
-        outline: none;
-        border: 2px solid var(--modal-backdrop);
-    } */
-}
-
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1439.98px) {
+  .section-quote {
+    margin-bottom: 16px;
+  }
+
   .quote__box {
     width: 736px;
     height: 302px;
@@ -155,6 +144,10 @@
 
 /* Desktop */
 @media screen and (min-width: 1440px) {
+  .section-quote {
+    margin-bottom: 16px;
+  }
+
   .quote__title {
     margin-top: 64px;
     margin-left: 16px;

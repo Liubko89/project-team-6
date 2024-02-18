@@ -1,0 +1,32 @@
+/* styles for Scroll Top BTN */
+
+#scrollToTopBtn {
+  font-family: 'DM Sans';
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 15px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: rgba(126, 132, 127, 1);
+  color: rgba(246, 246, 246, 1);
+  cursor: pointer;
+  border-radius: 100%;
+  opacity: 0.8;
+  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation-delay: 8500ms;
+  scroll-behavior: smooth;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #scrollToTopBtn {
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+  }
+}

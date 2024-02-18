@@ -1,6 +1,7 @@
 @import url('./fonts.css');
 @import url('./reset.css');
 @import url('./variables.css');
+@import url('./defaults.css');
 @import url('./header.css');
 @import url('./hero.css');
 @import url('./quote.css');
@@ -12,93 +13,4 @@
 @import url('./footer.css');
 @import url('./pagination.css');
 @import url('./favorites.css');
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'DM Sans';
-  color: var(--black);
-  background-color: rgba(246, 246, 246, 1);
-}
-
-.container {
-  max-width: 375px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  width: 0;
-  height: 0;
-  display: none;
-}
-
-.on-scroll {
-  overflow: hidden;
-}
-
-.on-backdrop-scroll {
-  overflow: hidden;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
-  }
-
-  .container-muscles {
-    padding-right: 48px;
-    padding-left: 48px;
-  }
-}
-
-/* styles for Scroll Top BTN */
-
-#scrollToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  font-size: 15px;
-  padding: 25px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: rgba(126, 132, 127, 1);
-  color: rgba(246, 246, 246, 1);
-  cursor: pointer;
-  border-radius: 60%;
-  opacity: 0.8;
-  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  animation-delay: 8500ms;
-  scroll-behavior: smooth;
-}
-
-@media screen and (min-width: 768px) {
-  #scrollToTopBtn {
-    font-size: 15px;
-    padding: 25px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  #scrollToTopBtn {
-    font-size: 28px;
-    padding: 27px 29px;
-  }
-}
+@import url('./scroll-to-top-btn.css');

@@ -24,10 +24,6 @@
   text-align: left;
 }
 
-.exercise-group::first-letter {
-  text-transform: uppercase;
-}
-
 .exercise-header {
   color: #1b1b1b;
   font-size: 32px;
@@ -43,29 +39,27 @@
   margin-bottom: 20px;
 }
 .exercise-group {
+  text-transform: capitalize;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   letter-spacing: -0.02em;
   text-align: left;
   color: #1b1b1b80;
-  padding-left: 8px;
 }
-
-/* .exercises-toolbar {
-  padding-bottom: 40px;
-} */
 
 @media screen and (max-width: 767.9px) {
   .form-search {
+    margin-top: 20px;
+    margin-left: auto;
     width: 100%;
   }
 }
 
-.form-search {
+.form-search-label {
   position: relative;
-  margin-bottom: 40px;
 }
+
 .input-search {
   padding: 12px 14px;
   font-weight: 400;
@@ -83,7 +77,7 @@
 .search-btn {
   position: absolute;
   background-color: transparent;
-  top: 14px;
+  top: 0;
   right: 14px;
   border: none;
 }
@@ -96,25 +90,27 @@
   padding-left: 16px;
 }
 
-.title-exercises {
-  display: flex;
-  align-items: baseline;
-}
-
 .gallery,
 .search-list,
 .exercises-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content: center;
+  align-items: center;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .searching-btn {
   display: none;
 }
 .list-exercises {
-  max-width: 295px;
+  max-width: 312px;
 }
 .options {
   display: flex;
@@ -180,10 +176,11 @@ div.work-div {
 }
 .options-item-span {
   position: relative;
-  width: 33px;
+  width: 24px;
   height: 24px;
   border-radius: 50%;
   background-color: #6b6c6d;
+  flex-shrink: 0;
 }
 
 .options-item-wrap {
@@ -205,9 +202,8 @@ div.work-div {
   position: absolute;
 }
 .ex-name {
-  width: 294px;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: wrap;
   overflow: hidden;
   color: rgb(27, 27, 27);
   font-family: DM Sans;
@@ -237,38 +233,29 @@ div.work-div {
   text-align: left;
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 1s linear infinite;
-  margin-top: 30px;
-}
-.loader::before,
-.loader::after {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  inset: 0px;
-  border-radius: 50%;
-  border: 5px solid #6b6c6d;
-  animation: prixClipFix 2s linear infinite;
-}
-.loader::after {
-  border-color: #c2c5c7;
-  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
-  inset: 6px;
-}
-
 @media screen and (min-width: 768px) {
   .exercises-toolbar {
     min-height: 856px;
   }
 
+  .title-exercises {
+    padding-left: 6px;
+    align-items: baseline;
+  }
+
+  .search-wrap {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
   .form-search {
     margin-bottom: 0;
   }
+
+  .ex-name {
+    white-space: nowrap;
+  }
+
   .input-search {
     font-size: 16px;
     line-height: 1.5;
@@ -277,15 +264,13 @@ div.work-div {
   }
 }
 
-.seach__wrap {
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: stretch;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
 @media screen and (min-width: 1440px) {
+  .gallery,
+  .search-list,
+  .exercises-gallery {
+    gap: 20px;
+  }
+
   .exercises-toolbar {
     min-height: 608px;
   }

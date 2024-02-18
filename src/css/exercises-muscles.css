@@ -1,4 +1,3 @@
-.section,
 .section-exercises {
   margin-bottom: 16px;
 }
@@ -6,30 +5,25 @@
 .container-muscles {
   padding: 40px 20px;
   border-radius: 30px;
-  background-color: rgba(232, 232, 232, 1);
-  width: 335px;
+  background-color: var(--hero-bg);
 }
 
-.exercises {
-  color: #1b1b1b;
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-}
 .title-exercises {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.exercises {
+  color: var(--black);
+  font-size: 32px;
+  line-height: 1.28;
 }
 
 .exercises-nav-list {
   display: flex;
-  justify-content: flex-start;
-  padding-bottom: 20px;
-}
-
-.exercises-nav-item:not(:last-child) {
-  margin-right: 6px;
+  justify-content: space-between;
+  gap: 6px;
 }
 
 .exercises-button {
@@ -43,6 +37,21 @@
   line-height: 1.28;
 }
 
+@media screen and (max-width: 374.98px) {
+  .exercises-button {
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+
+  .title-exercises {
+    flex-wrap: wrap;
+  }
+
+  .exercises-nav-list {
+    gap: 10px;
+  }
+}
+
 .exercises-button:hover,
 .exercises-button:focus,
 .exercises-button.active {
@@ -51,13 +60,13 @@
 }
 
 .exercise-card {
-  width: 295px;
   list-style-type: none;
   position: relative;
+  cursor: pointer;
 }
 
 .exercise-card:not(:last-child) {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .exercise-card-img {
@@ -91,23 +100,20 @@
 
 /* TABLET SCREEN MUSCLES*/
 
-@media screen and (min-width: 768px) and (max-width: 1438px) {
+@media screen and (min-width: 768px) and (max-width: 1439.98px) {
   .container-muscles {
     padding: 64px 48px;
     width: 736px;
   }
-  .exercises-search {
-    display: flex;
-    margin-bottom: 35px;
-  }
+
   .exercises {
     font-size: 44px;
     line-height: 1.09;
     letter-spacing: -0.07em;
-    margin-bottom: 32px;
   }
-  .title-exercises,
-  .exercises-search {
+
+  .title-exercises {
+    margin-bottom: 32px;
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -163,15 +169,8 @@
     gap: 14px;
     flex-wrap: wrap;
   }
-  .exercises-search {
-    display: flex;
-    margin-bottom: 16px;
-  }
-  .form-search {
-    margin-left: auto;
-  }
-  .title-exercises,
-  .exercises-search {
+
+  .title-exercises {
     padding-left: 38px;
     padding-right: 38px;
   }
