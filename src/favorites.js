@@ -264,7 +264,10 @@ function renderCards(render) {
   }
 
   const arrPages = [...favoritesPagination.children];
-  arrPages[currentPage - 1].classList.add('active');
+
+  render.length > pageSize
+    ? arrPages[currentPage - 1].classList.add('active')
+    : null;
 }
 
 function handlePagination(event) {
