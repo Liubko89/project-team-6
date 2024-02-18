@@ -153,9 +153,11 @@ div.work-div {
   height: 18px;
 }
 .btn-start-arrow {
-  width: 54px;
-  height: 18px;
+  padding: 8px 4px;
+  width: 60px;
+  height: 26px;
   border: none;
+  border-radius: 8px;
   outline: none;
   background-color: #fff;
   font-size: 14px;
@@ -164,7 +166,17 @@ div.work-div {
   align-items: center;
   gap: 8px;
 }
+
+.btn-start-arrow:hover,
+.btn-start-arrow:focus {
+  border: var(--grey) 1px solid;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
 .icon-arrow {
+  pointer-events: none;
   fill: transparent;
   stroke: #1b1b1b;
 }

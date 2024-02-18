@@ -65,6 +65,12 @@
   cursor: pointer;
 }
 
+.exercise-card:focus,
+.exercise-card:hover {
+  scale: 1.03;
+  border-radius: 12px;
+}
+
 .exercise-card:not(:last-child) {
   margin-bottom: 20px;
 }
