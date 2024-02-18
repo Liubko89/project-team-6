@@ -38,10 +38,11 @@ form.addEventListener('submit', function (event) {
       document.getElementById('emailInput').value = '';
     })
     .catch(function (error) {
-      iziToast.error({
-        title: 'Error',
-        message: 'Failed to create subscription',
+      iziToast.success({
+        message: 'This email address has already subscribed',
         position: 'topRight',
+        messageColor: '#fff',
+        backgroundColor: '#eea10c',
       });
     });
 });
