@@ -10,7 +10,7 @@
 
 .title-exercises {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 20px;
 }
 
