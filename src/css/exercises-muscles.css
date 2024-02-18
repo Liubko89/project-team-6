@@ -59,6 +59,14 @@
   color: var(--white-dirty);
 }
 
+.exercises-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .exercise-card {
   list-style-type: none;
   position: relative;
@@ -69,10 +77,6 @@
 .exercise-card:hover {
   scale: 1.03;
   border-radius: 12px;
-}
-
-.exercise-card:not(:last-child) {
-  margin-bottom: 20px;
 }
 
 .exercise-card-img {
@@ -166,14 +170,6 @@
 
   .exercises-button {
     padding: 10px 20px;
-  }
-
-  .exercises-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
   }
 
   .title-exercises {
