@@ -343,4 +343,5 @@
 .icon-trash {
   fill: transparent;
   stroke: var(--black);
+  pointer-events: none;
 }

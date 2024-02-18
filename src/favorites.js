@@ -8,6 +8,10 @@ const toDelete = document.querySelector('.content-no-favorites');
 const gallery = document.querySelector('.gallery');
 const favoritesBackdrop = document.querySelector('.favorites-backdrop');
 const bodyOnScr = document.querySelector('body');
+const favoritesPagination = document.querySelector('.favorites-pagination');
+
+const pageSize = 9;
+let currentPage = 1;
 
 back.classList.add('is-hidden');
 
@@ -28,7 +32,11 @@ onClickChange();
 
 const render = JSON.parse(localStorage.getItem('favorites'));
 
-checkContent(render);
+renderCards(render);
+
+gallery.addEventListener('click', handleRemove);
+
+favoritesPagination.addEventListener('click', handlePagination);
 
 function checkContent(arr) {
   arr.length !== 0
@@ -75,11 +83,11 @@ function renderContent(arr) {
     .join('');
 }
 
-gallery.innerHTML = renderContent(render);
-
-gallery.addEventListener('click', handleRemove);
-
 function handleRemove(event) {
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+
   if (event.target.closest('button').id === 'trash') {
     render.find((el, idx, arr) => {
       return el._id === event.target.closest('li').id
@@ -87,8 +95,12 @@ function handleRemove(event) {
         : null;
     });
     localStorage.setItem('favorites', JSON.stringify(render));
-    gallery.innerHTML = renderContent(render);
-    checkContent(render);
+
+    render.length <= (currentPage - 1) * pageSize
+      ? (currentPage -= 1)
+      : currentPage;
+
+    renderCards(render);
   }
 
   if (event.target.closest('button').id === 'open') {
@@ -222,4 +234,44 @@ function onBackDropClick(event) {
   if (event.currentTarget === event.target) {
     onCloseBtn(event);
   }
+}
+
+function renderPagination(num) {
+  favoritesPagination.innerHTML = '';
+  for (let i = 1; i <= num; i += 1) {
+    favoritesPagination.insertAdjacentHTML(
+      'beforeend',
+      `<li class="page-exercises" data-page="${i}"><button id="prevPage">${i}</button></li>`
+    );
+  }
+}
+
+function renderCards(render) {
+  checkContent(render);
+
+  if (render.length <= pageSize) {
+    gallery.innerHTML = renderContent(render);
+    favoritesPagination.classList.add('is-hidden');
+  } else {
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+
+    favoritesPagination.classList.remove('is-hidden');
+    renderPagination(Math.ceil(render.length / pageSize));
+
+    const pageData = render.slice(start, end);
+    gallery.innerHTML = renderContent(pageData);
+  }
+
+  const arrPages = [...favoritesPagination.children];
+  arrPages[currentPage - 1].classList.add('active');
+}
+
+function handlePagination(event) {
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  currentPage = event.target.textContent;
+
+  renderCards(render);
 }
