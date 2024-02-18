@@ -21,9 +21,6 @@ export default async function handleContainerMuscles(evt) {
   const prevBtn = containerMuscles.querySelector('.active');
   const nextBtn = evt.target;
 
-  // prevBtn.disabled = false;
-  // nextBtn.disabled = true;
-
   prevBtn.classList.remove('active');
   nextBtn.classList.add('active');
 }
@@ -91,9 +88,6 @@ function handleSwitchPage(evt) {
   getExercises(currentFilter, page).then(render);
 }
 
-
-
-
 ///////////////////////////
 exercisesContainer.addEventListener('click', handleExerciseCardClick);
 
@@ -106,7 +100,6 @@ function handleExerciseCardClick(event) {
   const name = exerciseCard.querySelector('.description-category').textContent;
 
   exerciseGroup.textContent = name;
-
 
   return exerciseGroup.textContent;
 }

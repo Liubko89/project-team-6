@@ -46,6 +46,13 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #1b1b1b80;
+  margin-left: 4px;
+}
+
+@media screen and (max-width: 367.98px) {
+  .exercise-group {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 767.9px) {
