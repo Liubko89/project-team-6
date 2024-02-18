@@ -120,14 +120,17 @@
 }
 
 .content-no-favorites {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 247px;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+
+  margin: 80px auto 0;
 }
 
 .dumbbell-photo {
+  margin: 0 auto;
   width: 85px;
   margin-bottom: 28px;
 }
@@ -141,13 +144,13 @@
   color: rgba(27, 27, 27, 1);
 }
 
-.central-block-content {
+/* .central-block-content {
   display: flex;
   justify-content: center;
   height: 100%;
   overflow: auto;
   padding-top: 20px;
-}
+} */
 
 .second-third-together {
   margin-bottom: 20px;
@@ -235,6 +238,7 @@
   }
 
   .content-no-favorites {
+    margin: 208px auto 0;
     width: 554px;
   }
 
@@ -297,6 +301,10 @@
 
   .first-favorites-block {
     margin: 0;
+  }
+
+  .content-no-favorites {
+    margin: 146px auto 0;
   }
 
   .favorite-no-content-text {
