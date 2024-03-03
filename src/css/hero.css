@@ -51,21 +51,34 @@
   }
 }
 
-@media screen and (min-device-pixel-ratio: 1) and (min-width: 1440px),
+/* @media screen and (min-device-pixel-ratio: 1) and (min-width: 1440px),
   screen and (min-resolution: 96dpi) and (min-width: 1440px),
   screen and (min-resolution: 1dppx) and (min-width: 1440px) {
   .hero-bg {
     background-image: url(../img/hero/hero-desk.png);
   }
+} */
+
+@media screen and (min-width: 1440px) {
+  .hero-bg {
+    background-image: url(../img/hero/hero-desk.png);
+  }
 }
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
+/* @media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
   screen and (min-resolution: 192dpi) and (min-width: 1440px),
   screen and (min-resolution: 2dppx) and (min-width: 1440px) {
   .hero-bg {
     background-image: url(../img/hero/hero-desk@2x.png);
   }
+} */
+
+@media screen and (min-width: 1280px) and (min-resolution: 192dpi) {
+  .hero-bg {
+    background-image: url(../img/hero/hero-desk@2x.png);
+  }
 }
+
 .hero-list {
   display: flex;
   flex-wrap: wrap;
