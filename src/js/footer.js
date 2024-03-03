@@ -20,7 +20,7 @@ form.addEventListener('submit', function (event) {
 
   axios
     .post(
-      'https://energyflow.b.goit.study/api/subscription',
+      '/subscription',
       { email: email },
       {
         headers: {
