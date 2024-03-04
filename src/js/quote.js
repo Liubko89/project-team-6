@@ -9,8 +9,8 @@ async function getQuote() {
     return response.data;
   } catch (error) {
     iziToast.error({
-      title: 'Wrong',
-      message: 'Try again',
+      title: 'We cannot get quote of the day from the server',
+      message: 'Try again later',
       position: 'topRight',
     });
     throw error;
