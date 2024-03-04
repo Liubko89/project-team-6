@@ -1,16 +1,17 @@
 import iziToast from 'izitoast';
 import axios from 'axios';
+const BASE_URL = 'https://energyflow.b.goit.study/api';
 const backendQuoteContainer = document.querySelector('.quote__backend');
 //отримання цитати з сервера
 async function getQuote() {
   backendQuoteContainer.innerHTML = `<span class="loader"></span>`;
   try {
-    const response = await axios.get(`/quote`);
+    const response = await axios.get(`${BASE_URL}/quote`);
     return response.data;
   } catch (error) {
     iziToast.error({
-      title: 'We cannot get quote of the day from the server',
-      message: 'Try again later',
+      title: 'Wrong',
+      message: 'Try again',
       position: 'topRight',
     });
     throw error;
